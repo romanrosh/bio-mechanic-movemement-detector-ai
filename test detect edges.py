@@ -10,8 +10,8 @@ image_gray = cv2.imread('snatch.jpg', cv2.IMREAD_GRAYSCALE)
 median_intensity = np.median(image_gray)
 
 # Set thresholds to be one standard deviation above and below median intensity
-lower_threshold = int(max(0, (1.0 - 0.33) * median_intensity))
-upper_threshold = int(min(255, (1.0 + 0.33) * median_intensity))
+lower_threshold = int(max(0, (1.0) * median_intensity))
+upper_threshold = int(min(255, (5.0) * median_intensity))
 
 # Apply canny edge detector
 image_canny = cv2.Canny(image_gray, lower_threshold, upper_threshold)
