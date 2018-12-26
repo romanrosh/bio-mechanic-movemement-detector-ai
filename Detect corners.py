@@ -4,7 +4,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 # Load image as grayscale
-image_bgr = cv2.imread('images/plane_256x256.jpg')
+image_bgr = cv2.imread('snatch.jpg')
 image_gray = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2GRAY)
 image_gray = np.float32(image_gray)
 
