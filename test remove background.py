@@ -4,7 +4,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 # Load image
-image_bgr = cv2.imread('snatch.jpg')
+image_bgr = cv2.imread('snatch3.jpg')
 # Convert to RGB
 image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
 # Rectange values: start x, start y, width, height

@@ -4,7 +4,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 # Load image as greyscale
-image_gray = cv2.imread('snatch.jpg', cv2.IMREAD_GRAYSCALE)
+image_gray = cv2.imread('snatch3.jpg', cv2.IMREAD_GRAYSCALE)
 
 # Calculate median intensity
 median_intensity = np.median(image_gray)

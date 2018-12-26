@@ -12,7 +12,6 @@ response = requests.get(url)
 urls = []
 for i, item in enumerate(response.json()['items']):
     try:
-
         print(i)
         YouTube("https://www.youtube.com/watch?v=" + (item['id']['videoId'])).streams.first().download()
     except:
