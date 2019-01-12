@@ -1,7 +1,7 @@
 
 # Load util
 import matplotlib.pyplot as plt
-
+import pandas as pd
 import numpy as np
 import glob
 
@@ -9,59 +9,21 @@ from keras.models import Sequential, Model
 from keras import optimizers
 from keras.layers import Dense, Activation, Conv2D, MaxPool2D, Flatten, BatchNormalization, Dropout
 from keras.preprocessing.image import ImageDataGenerator
+df=pd.read_csv('C:/Users/romanrosh/dataframe.csv')
 
-dataset_folder_path = 'C:/Users/romanrosh/photos'
-train_folder = dataset_folder_path + '/side'
-test_folder = dataset_folder_path + '/side'
 
-test_files = glob.glob(test_folder + '/**/*.jpg')
-train_files = glob.glob(train_folder + '/**/*.jpg')
-
-train_examples = len(train_files)
-test_examples = len(test_files)
-print("Number of train examples: ", train_examples)
-print("Number of test examples: ", test_examples)
 batch_size = 60
 from keras.preprocessing.image import ImageDataGenerator
 
-"""View some sample images:"""
+X = df.loc[:,:'label']
+Y = df.loc[:,'label']
 
-datagen = ImageDataGenerator(
-    rescale=1. / 255,
-    rotation_range=5,
-    zoom_range=0.2,
-    horizontal_flip=True)
-
-img_height = img_width = 200
 channels = 1
-if (channels == 1):
-    color_mode_ = "grayscale"
-else:
-    color_mode_ = "rgb"
-
-train_generator = datagen.flow_from_directory(
-    train_folder,
-    color_mode=color_mode_,
-    target_size=(img_height, img_width),
-    batch_size=batch_size,
-    shuffle=True,
-    class_mode='binary'
-)
-
-test_generator = datagen.flow_from_directory(
-    test_folder,
-    color_mode=color_mode_,
-    target_size=(img_height, img_width),
-    batch_size=batch_size,
-    shuffle=True,
-    class_mode='binary'
-)
 
 """## Convolution Neural Networks (CNN)"""
-print(test_files)
 
 cnn = Sequential()
-cnn.add(Conv2D(32, kernel_size=(3, 3), input_shape=(img_height, img_width, 1)))
+cnn.add(Conv2D(32, kernel_size=(3, 3)))
 cnn.add(BatchNormalization())
 cnn.add(Activation('relu'))
 
@@ -94,9 +56,7 @@ cnn.add(BatchNormalization())
 
 cnn.add(Dense(1, activation='softmax'))
 
-cnn.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-cnn.summary()
+cnn.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+cnn.fit(X, Y, validation_split=0.33, epochs=150, batch_size=10)
 
-history_cnn = cnn.fit_generator(train_generator, train_examples // batch_size, verbose=1, epochs=15)
-score = cnn.evaluate_generator(test_generator, test_examples // batch_size, verbose=1)
 print(score)
