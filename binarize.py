@@ -4,7 +4,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 # Load image as greyscale
-image_grey = cv2.imread('snatch2.jpg', cv2.IMREAD_GRAYSCALE)
+image_grey = cv2.imread('', cv2.IMREAD_GRAYSCALE)
 
 # Apply adaptive thresholding
 max_output_value = 255
