@@ -1,20 +1,6 @@
-import random
-import itertools
+
 from tkinter import *
-from tkinter.scrolledtext import *
-import tkinter.messagebox
-import tkinter.dialog
-from openpyxl import *
-import sys, traceback
-import math
-import datetime
-import scipy.stats
-import pdb
-from scipy.stats import norm
-import os
-import sys
-import csv
-import numpy
+
 
 
 def button1(param):
