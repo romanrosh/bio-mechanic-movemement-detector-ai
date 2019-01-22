@@ -3,10 +3,20 @@ from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
 import moviepy.editor as mp
 
 
-def button1(param):
-    print('inside button1', param)
-    video_cut(param)
-
+def video_cut(source):
+    """
+    i is a starting point
+    duration is ending point
+    :param source:
+    :return:
+    """
+    duration = round(mp.VideoFileClip(source).duration)
+    i = 0
+    while i < duration:
+        darray = source.split(".")
+        destin = darray[0] + str(i) + "." + darray[1]
+        ffmpeg_extract_subclip(source, i, i+14, targetname=destin)
+        i += 14
 
 def button2(param):
     print('inside button2', param)
@@ -22,16 +32,16 @@ def main():
     root.resizable(width=FALSE, height=FALSE)
     root.geometry("630x700")
 
-    button1inputtext = Label(root, text='Template for data preparation resize, flip, rename pics', anchor=W)
-    button1inputtext.place(x=10, y=10, height=25)
+    headerinputtext = Label(root, text='Template for data preparation resize, flip, rename pics', anchor=W)
+    headerinputtext.place(x=10, y=10, height=25)
 
-    button1inputtext = Label(root, text='Button 1', anchor=W)
-    button1inputtext.place(x=10, y=70, width=250, height=20)
-    button1input = Entry(root)
-    button1input.place(x=10, y=100, width=70 + (input_width + 20) * 2, height=25)
-    goButton1 = Button(root, text='button1', command=lambda: button1(button1input.get()))
-    goButton1.config(relief=RAISED)
-    goButton1.place(x=450, y=100, width=100, height=25)
+    video_cutinputtext = Label(root, text='video_cut', anchor=W)
+    video_cutinputtext.place(x=10, y=70, width=250, height=20)
+    video_cutinput = Entry(root)
+    video_cutinput.place(x=10, y=100, width=70 + (input_width + 20) * 2, height=25)
+    video_cut_button = Button(root, text='video_cut', command=lambda: video_cut(video_cutinput.get()))
+    video_cut_button.config(relief=RAISED)
+    video_cut_button.place(x=450, y=100, width=100, height=25)
 
     button2inputtext = Label(root, text='Button 2', anchor=W)
     button2inputtext.place(x=10, y=130, width=250, height=25)
@@ -55,15 +65,6 @@ def main():
 
     root.mainloop()
 
-
-def video_cut(source):
-    duration = round(mp.VideoFileClip(source).duration)
-    i = 0
-    while i < duration:
-        darray = source.split(".")
-        destin = darray[0] + str(i) + "." + darray[1]
-        ffmpeg_extract_subclip(source, i, i+1, targetname=destin)
-        i += 14
 
 if __name__ == '__main__':
     main()
