@@ -1,6 +1,7 @@
 from tkinter import *
 from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
 import moviepy.editor as mp
+import cv2
 
 
 def video_cut(source):
@@ -17,6 +18,21 @@ def video_cut(source):
         destin = darray[0] + str(i) + "." + darray[1]
         ffmpeg_extract_subclip(source, i, i+14, targetname=destin)
         i += 14
+
+    cap = cv2.VideoCapture('videoplayback.mp4')
+
+    while (cap.isOpened()):
+        ret, frame = cap.read()
+
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        print(cap.read())
+
+        cv2.imshow('frame', gray)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    cap.release()
+    cv2.destroyAllWindows()
 
 def button2(param):
     print('inside button2', param)
