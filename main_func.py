@@ -2,6 +2,9 @@ from tkinter import *
 from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
 import moviepy.editor as mp
 import cv2
+from PIL import Image
+
+from resizeimage import resizeimage
 
 
 def video_cut(source):
@@ -21,11 +24,16 @@ def video_cut(source):
 
     cap = cv2.VideoCapture('videoplayback.mp4')
 
+    counter = 0
+
     while (cap.isOpened()):
         ret, frame = cap.read()
 
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        gray = resizeimage.resize_cover(gray, [150, 150])
+        gray.save(f'resized_gray_{counter}', image.format)
         print(cap.read())
+        counter += 1
 
         cv2.imshow('frame', gray)
         if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -79,7 +87,7 @@ def main():
     ExitButton.config(relief=RAISED)
     ExitButton.place(x=500, y=400, width=100, height=25)
 
-    root.mainloop()git 
+    root.mainloop()
 
 
 if __name__ == '__main__':
