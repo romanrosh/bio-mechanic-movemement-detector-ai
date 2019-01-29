@@ -1,24 +1,15 @@
 from tkinter import *
-from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
-import moviepy.editor as mp
 import cv2
 
 def video_cut(source):
     """
-    i is a starting point
-    duration is ending point
+    cutting video to pictures and saving to destination folder
+    folder should exist
     :param source:
     :return:
     """
-    duration = round(mp.VideoFileClip(source).duration)
-    i = 0
-    while i < duration:
-        darray = source.split(".")
-        destin = darray[0] + str(i) + "." + darray[1]
-        ffmpeg_extract_subclip(source, i, i+14, targetname=destin)
-        i += 14
 
-    cap = cv2.VideoCapture('Squat.mp4')
+    cap = cv2.VideoCapture(source)
 
     counter = 0
 
@@ -26,11 +17,10 @@ def video_cut(source):
         ret, frame = cap.read()
 
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        gray = cv2.resize(gray, dsize=(150, 150))
-        gray.save(f'resized_gray_{counter}', image.format)
-        print(gray.read())
+        gray = cv2.resize(gray, dsize=(400, 400))
+        cv2.imwrite('destination//'+str(counter)+'.jpg', gray)
         counter += 1
-
+        print(cv2.CAP_PROP_FRAME_COUNT(source))
         cv2.imshow('frame', gray)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
@@ -52,7 +42,7 @@ def main():
     root.resizable(width=FALSE, height=FALSE)
     root.geometry("630x700")
 
-    headerinputtext = Label(root, text='Template for data preparation resize, flip, rename pics', anchor=W)
+    headerinputtext = Label(root, text='Files pre-processing', anchor=W)
     headerinputtext.place(x=10, y=10, height=25)
 
     video_cutinputtext = Label(root, text='video_cut', anchor=W)
