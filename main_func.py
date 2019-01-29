@@ -20,7 +20,6 @@ def video_cut(source):
         gray = cv2.resize(gray, dsize=(400, 400))
         cv2.imwrite('destination//'+str(counter)+'.jpg', gray)
         counter += 1
-        print(cv2.CAP_PROP_FRAME_COUNT(source))
         cv2.imshow('frame', gray)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
@@ -34,6 +33,9 @@ def button2(param):
 
 def button3(param):
     print('inside button3', param)
+
+def button4(param):
+    print('inside button4', param)
 
 
 def main():
@@ -53,21 +55,29 @@ def main():
     video_cut_button.config(relief=RAISED)
     video_cut_button.place(x=450, y=100, width=100, height=25)
 
-    button2inputtext = Label(root, text='Button 2', anchor=W)
+    button2inputtext = Label(root, text='Train', anchor=W)
     button2inputtext.place(x=10, y=130, width=250, height=25)
     button2input = Entry(root)
     button2input.place(x=10, y=160, width=70 + (input_width + 20) * 2, height=25)
-    goButton2 = Button(root, text='button2', command=lambda: button2(button2input.get()))
+    goButton2 = Button(root, text='Train', command=lambda: button2(button2input.get()))
     goButton2.config(relief=RAISED)
     goButton2.place(x=450, y=160, width=100, height=25)
 
-    button3inputtext = Label(root, text='Button 3', anchor=W)
+    button3inputtext = Label(root, text='Predict', anchor=W)
     button3inputtext.place(x=10, y=190, width=250, height=25)
     button3input = Entry(root)
     button3input.place(x=10, y=220, width=70 + (input_width + 20) * 2, height=25)
-    goButton3 = Button(root, text='button3', command=lambda: button3(button3input.get()))
+    goButton3 = Button(root, text='Predict', command=lambda: button3(button3input.get()))
     goButton3.config(relief=RAISED)
     goButton3.place(x=450, y=220, width=100, height=25)
+
+    button4inputtext = Label(root, text='Chart', anchor=W)
+    button4inputtext.place(x=10, y=250, width=250, height=25)
+    button4input = Entry(root)
+    button4input.place(x=10, y=280, width=70 + (input_width + 20) * 2, height=25)
+    goButton4 = Button(root, text='Chart', command=lambda: button4(button4input.get()))
+    goButton4.config(relief=RAISED)
+    goButton4.place(x=450, y=280, width=100, height=25)
 
     ExitButton = Button(root, text='Exit', command=root.destroy)
     ExitButton.config(relief=RAISED)
