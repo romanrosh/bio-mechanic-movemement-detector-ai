@@ -75,11 +75,11 @@ def main():
     goButton3.config(relief=RAISED)
     goButton3.place(x=450, y=220, width=100, height=25)
 
-    ExitButton = Button(root, text='Exit', command=exit)
+    ExitButton = Button(root, text='Exit', command=root.destroy)
     ExitButton.config(relief=RAISED)
     ExitButton.place(x=500, y=400, width=100, height=25)
 
-    root.mainloop()
+    root.mainloop()git 
 
 
 if __name__ == '__main__':
