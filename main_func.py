@@ -2,10 +2,6 @@ from tkinter import *
 from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
 import moviepy.editor as mp
 import cv2
-from PIL import Image
-
-from resizeimage import resizeimage
-
 
 def video_cut(source):
     """
@@ -22,7 +18,7 @@ def video_cut(source):
         ffmpeg_extract_subclip(source, i, i+14, targetname=destin)
         i += 14
 
-    cap = cv2.VideoCapture('videoplayback.mp4')
+    cap = cv2.VideoCapture('Squat.mp4')
 
     counter = 0
 
@@ -30,9 +26,9 @@ def video_cut(source):
         ret, frame = cap.read()
 
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        gray = resizeimage.resize_cover(gray, [150, 150])
+        gray = cv2.resize(gray, dsize=(150, 150))
         gray.save(f'resized_gray_{counter}', image.format)
-        print(cap.read())
+        print(gray.read())
         counter += 1
 
         cv2.imshow('frame', gray)
