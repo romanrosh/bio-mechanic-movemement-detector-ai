@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="53758124-a276-4243-848a-351562495724" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_func.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_func.py" afterDir="false" />
-    </list>
+    <list default="true" id="53758124-a276-4243-848a-351562495724" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +13,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="32" column="57" lean-forward="true" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="57" />
+            <state relative-caret-position="191">
+              <caret line="75" column="55" lean-forward="true" selection-start-line="75" selection-start-column="55" selection-end-line="75" selection-end-column="55" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -86,6 +83,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main_func" />
+        <item itemvalue="Python.main_func" />
       </list>
     </recent_temporary>
   </component>
@@ -130,8 +128,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/main_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="32" column="57" lean-forward="true" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="57" />
+        <state relative-caret-position="191">
+          <caret line="75" column="55" lean-forward="true" selection-start-line="75" selection-start-column="55" selection-end-line="75" selection-end-column="55" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
