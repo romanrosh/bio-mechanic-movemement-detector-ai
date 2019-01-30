@@ -1,28 +1,15 @@
 from tkinter import *
-from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
-import moviepy.editor as mp
 import cv2
-from PIL import Image
-
-from resizeimage import resizeimage
-
 
 def video_cut(source):
     """
-    i is a starting point
-    duration is ending point
+    cutting video to pictures and saving to destination folder
+    folder should exist
     :param source:
     :return:
     """
-    duration = round(mp.VideoFileClip(source).duration)
-    i = 0
-    while i < duration:
-        darray = source.split(".")
-        destin = darray[0] + str(i) + "." + darray[1]
-        ffmpeg_extract_subclip(source, i, i+14, targetname=destin)
-        i += 14
 
-    cap = cv2.VideoCapture('videoplayback.mp4')
+    cap = cv2.VideoCapture(source)
 
     counter = 0
 
@@ -30,11 +17,9 @@ def video_cut(source):
         ret, frame = cap.read()
 
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        gray = resizeimage.resize_cover(gray, [150, 150])
-        gray.save(f'resized_gray_{counter}', image.format)
-        print(cap.read())
+        gray = cv2.resize(gray, dsize=(400, 400))
+        cv2.imwrite('destination//'+str(counter)+'.jpg', gray)
         counter += 1
-
         cv2.imshow('frame', gray)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
@@ -49,6 +34,9 @@ def button2(param):
 def button3(param):
     print('inside button3', param)
 
+def button4(param):
+    print('inside button4', param)
+
 
 def main():
     input_width = 150
@@ -56,7 +44,7 @@ def main():
     root.resizable(width=FALSE, height=FALSE)
     root.geometry("630x700")
 
-    headerinputtext = Label(root, text='Template for data preparation resize, flip, rename pics', anchor=W)
+    headerinputtext = Label(root, text='Files pre-processing', anchor=W)
     headerinputtext.place(x=10, y=10, height=25)
 
     video_cutinputtext = Label(root, text='video_cut', anchor=W)
@@ -67,21 +55,29 @@ def main():
     video_cut_button.config(relief=RAISED)
     video_cut_button.place(x=450, y=100, width=100, height=25)
 
-    button2inputtext = Label(root, text='Button 2', anchor=W)
+    button2inputtext = Label(root, text='Train', anchor=W)
     button2inputtext.place(x=10, y=130, width=250, height=25)
     button2input = Entry(root)
     button2input.place(x=10, y=160, width=70 + (input_width + 20) * 2, height=25)
-    goButton2 = Button(root, text='button2', command=lambda: button2(button2input.get()))
+    goButton2 = Button(root, text='Train', command=lambda: button2(button2input.get()))
     goButton2.config(relief=RAISED)
     goButton2.place(x=450, y=160, width=100, height=25)
 
-    button3inputtext = Label(root, text='Button 3', anchor=W)
+    button3inputtext = Label(root, text='Predict', anchor=W)
     button3inputtext.place(x=10, y=190, width=250, height=25)
     button3input = Entry(root)
     button3input.place(x=10, y=220, width=70 + (input_width + 20) * 2, height=25)
-    goButton3 = Button(root, text='button3', command=lambda: button3(button3input.get()))
+    goButton3 = Button(root, text='Predict', command=lambda: button3(button3input.get()))
     goButton3.config(relief=RAISED)
     goButton3.place(x=450, y=220, width=100, height=25)
+
+    button4inputtext = Label(root, text='Chart', anchor=W)
+    button4inputtext.place(x=10, y=250, width=250, height=25)
+    button4input = Entry(root)
+    button4input.place(x=10, y=280, width=70 + (input_width + 20) * 2, height=25)
+    goButton4 = Button(root, text='Chart', command=lambda: button4(button4input.get()))
+    goButton4.config(relief=RAISED)
+    goButton4.place(x=450, y=280, width=100, height=25)
 
     ExitButton = Button(root, text='Exit', command=root.destroy)
     ExitButton.config(relief=RAISED)
