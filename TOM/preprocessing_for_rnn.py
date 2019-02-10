@@ -3,79 +3,85 @@ import os
 import numpy as np
 import logging
 
+
 logging.basicConfig(level=logging.INFO)
 TEST_FILE = 'IMG_3368.MOV'
 TARGET_NAME = 'test'
 CURRENT_DIR = os.getcwd()
+TARGET_DIR = os.path.join(CURRENT_DIR, TARGET_NAME)
 
 protoFile = "/Users/tomcohen/Documents/ITC/project_2/openpose-master/models/pose/body_25/pose_deploy.prototxt"
 weightsFile = "/Users/tomcohen/Documents/ITC/project_2/openpose-master/models/pose/body_25/pose_iter_584000.caffemodel"
 
 
-def video_cut(filepath, img_destination):
-    """
-    :param filepath: path of the video
-    :param img_destination: name of the folder where the images will be stored
-    :return:
-    """
+class VideoToBody25:
+    """object that will receive a path of a video and will eventually return a dataframe"""
 
-    cam = cv2.VideoCapture(filepath)
+    def __init__(self, video_path, img_destination):
+        self.video_path = video_path
+        self.img_destination = img_destination
 
-    try:
+    def video_cut(self):
+        """
+        :param filepath: path of the video
+        :param img_destination: name of the folder where the images will be stored
+        :return:
+        """
 
-        # creating a folder named data
-        if not os.path.exists(img_destination):
-            os.makedirs(img_destination)
+        cam = cv2.VideoCapture(self.video_path)
 
-            # if not created then raise error
-    except OSError:
-        print('Error: Creating directory of data')
+        try:
 
-        # frame
-    currentframe = 0
+            # creating a folder named data
+            if not os.path.exists(self.img_destination):
+                os.makedirs(self.img_destination)
 
-    while (True):
+                # if not created then raise error
+        except OSError:
+            print('Error: Creating directory of data')
 
-        # reading from frame
-        ret, frame = cam.read()
+            # frame
+        currentframe = 0
 
-        if ret:
-            # if video is still left continue creating images
-            name = os.path.join(img_destination, str(currentframe) + '.jpg')
+        while (True):
 
-            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-            gray = cv2.resize(gray, dsize=(400, 400))
-            # writing the extracted images
-            cv2.imwrite(name, gray)
+            # reading from frame
+            ret, frame = cam.read()
 
-            # increasing counter so that it will
-            # show how many frames are created
-            currentframe += 1
-        else:
-            break
+            if ret:
+                # if video is still left continue creating images
+                name = os.path.join(self.img_destination, str(currentframe) + '.jpg')
 
-    logging.info('Converted: {}'.format(filepath.split('/')[-1]))
-    # Release all space and windows once done
-    cam.release()
-    cv2.destroyAllWindows()
+                gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+                gray = cv2.resize(gray, dsize=(400, 400))
+                # writing the extracted images
+                cv2.imwrite(name, gray)
 
+                # increasing counter so that it will
+                # show how many frames are created
+                currentframe += 1
+            else:
+                break
 
-def trace_skeleton(target_directory):
-    net = cv2.dnn.readNetFromCaffe(protoFile, weightsFile)
-    frame = cv2.imread("single.jpg")
+        logging.info('Converted: {}'.format(self.video_path.split('/')[-1]))
+        # Release all space and windows once done
+        cam.release()
+        cv2.destroyAllWindows()
 
-    # Specify the input image dimensions
-    inWidth = 368
-    inHeight = 368
-    nPoints = 25
-    threshold = 0.1
-    file_list = os.listdir(target_directory)
-    print(file_list)
+    def trace_skeleton(self, image_path):
+        """
+        :param image_path: path of a specific image
+        :return: coordinates recieved when we feed forward
+        """
 
-    the_trace = []
+        net = cv2.dnn.readNetFromCaffe(protoFile, weightsFile)
 
-    for image_file in file_list:
-        image = cv2.imread(os.path.join(target_directory, image_file))
+        # Specify the input image dimensions
+        inWidth = 368
+        inHeight = 368
+        nPoints = 25
+        threshold = 0.1
+        image = cv2.imread(image_path)
         frameHeight, frameWidth, channels = image.shape
 
         inpBlob = cv2.dnn.blobFromImage(image, 1.0 / 255, (inWidth, inHeight),
@@ -101,15 +107,31 @@ def trace_skeleton(target_directory):
             else:
                 points.append(None)
 
-        the_trace.append(points)
-        logging.info('traced: {}'.format(image_file))
-    return the_trace
+        return points
+
+    def build_array(self):
+        """
+
+        :return: numpy array with the first array representing the columns and the rest the coordinates for each frame
+        in the video
+        """
+        self.video_cut()
+        array = np.array(list(range(25)))
+        file_list = sorted(os.listdir(self.img_destination), key=lambda file: int(file.split('.')[0]))
+
+        for image_name in file_list:
+            image_path = os.path.join(self.img_destination, image_name)
+            frame_coord = self.trace_skeleton(image_path)
+            array = np.vstack([array, frame_coord])
+
+            logging.info('traced: {}'.format(image_name))
+        return array
 
 
 if __name__ == '__main__':
     # video_to_img(os.path.join(CURRENT_DIR, TEST_FILE), os.path.join(CURRENT_DIR, TARGET_DIR))
-    TARGET_DIR = os.path.join(CURRENT_DIR, TARGET_NAME)
 
+    video_path = os.path.join(CURRENT_DIR, TEST_FILE)
+    converter = VideoToBody25(video_path, TARGET_DIR)
 
-    video_cut(os.path.join(CURRENT_DIR, TEST_FILE), TARGET_DIR)
-    # print(trace_skeleton(TARGET_DIR)[-1])
+    print(converter.build_array())
