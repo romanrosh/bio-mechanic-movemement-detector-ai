@@ -1,6 +1,7 @@
 from tkinter import *
 import cv2
 
+
 def video_cut(source):
     """
     cutting video to pictures and saving to destination folder
@@ -16,11 +17,14 @@ def video_cut(source):
     while (cap.isOpened()):
         ret, frame = cap.read()
 
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        gray = cv2.resize(gray, dsize=(400, 400))
-        cv2.imwrite('destination//'+str(counter)+'.jpg', gray)
-        counter += 1
-        cv2.imshow('frame', gray)
+        if ret == True:
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            gray = cv2.resize(gray, dsize=(400, 400))
+            cv2.imwrite('destination//'+str(counter)+'.jpg', gray)
+            counter += 1
+            cv2.imshow('frame', gray)
+        else:
+            break
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
