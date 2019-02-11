@@ -1,6 +1,7 @@
 import cv2
 import time
 import numpy as np
+import pandas as pd
 
 MODE = "BODY25"
 
@@ -40,10 +41,13 @@ vid_writer = cv2.VideoWriter('./destination/output.avi', cv2.VideoWriter_fourcc(
 
 net = cv2.dnn.readNetFromCaffe(protoFile, weightsFile)
 counter = 0
+empty_df = True
 while cv2.waitKey(1) < 0:
     t = time.time()
     hasFrame, frame = cap.read()
     counter += 1
+    is_None = False
+
     if np.mod(counter, 5) != 0:
         continue
     frameCopy = np.copy(frame)
@@ -84,8 +88,22 @@ while cv2.waitKey(1) < 0:
             points.append((int(x), int(y)))
         else:
             points.append(None)
+            is_None = True
 
     # Draw Skeleton
+    if is_None:
+        continue
+
+    flat_array = np.array([x_or_y for point in points for x_or_y in point])
+    point_dict = {i: flat_array[i] for i in np.arange(len(flat_array))}
+    if empty_df:
+        df = pd.DataFrame(point_dict, index=[0])
+        empty_df = False
+    else:
+        df = df.append(point_dict, ignore_index=True)
+
+
+
     for pair in POSE_PAIRS:
         partA = pair[0]
         partB = pair[1]
