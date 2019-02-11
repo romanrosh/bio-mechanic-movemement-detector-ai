@@ -3,16 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="53758124-a276-4243-848a-351562495724" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Detect corners.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Roman2.MOV" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Silhouette - shalom.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/binarize.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataframe.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/detect corners 2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test detect edges.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test remove background.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test video read from file.py" beforeDir="false" afterPath="$PROJECT_DIR$/test video read from file.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/preprocessing_for_rnn.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/OpenPoseImage.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="260">
-              <caret line="13" column="83" selection-start-line="13" selection-start-column="83" selection-end-line="13" selection-end-column="118" />
+              <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -40,45 +30,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OpenPoseVideo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="24" lean-forward="true" selection-start-line="17" selection-end-line="24" />
+            <state relative-caret-position="180">
+              <caret line="21" column="16" lean-forward="true" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/OpenPoseImage.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test video read from file.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resize.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -343,7 +298,14 @@
       <option name="project" value="LOCAL" />
       <updated>1549820081722</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Adding Body25">
+      <created>1549837009498</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1549837009499</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -360,14 +322,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17713153" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17713153" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -396,7 +357,8 @@
     <MESSAGE value="Videos to pics done" />
     <MESSAGE value="Videos to pics done&#10;still working on storing the trace angles" />
     <MESSAGE value="Adding open pose video and image processing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding open pose video and image processing" />
+    <MESSAGE value="Adding Body25" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding Body25" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/end to end - pics.ipynb">
@@ -441,29 +403,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="58" column="38" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/binarize.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Detect corners.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/detect corners 2.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py" />
+    <entry file="file://$PROJECT_DIR$/binarize.py" />
+    <entry file="file://$PROJECT_DIR$/Detect corners.py" />
+    <entry file="file://$PROJECT_DIR$/detect corners 2.py" />
     <entry file="file://$PROJECT_DIR$/test video rendering.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -488,19 +431,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Silhouette - shalom.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test detect edges.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test remove background.py">
+    <entry file="file://$PROJECT_DIR$/Silhouette - shalom.ipynb" />
+    <entry file="file://$PROJECT_DIR$/test detect edges.py" />
+    <entry file="file://$PROJECT_DIR$/test remove background.py" />
+    <entry file="file://$USER_HOME$/Desktop/RNNLM_Exercise_(solution).ipynb" />
+    <entry file="file://$PROJECT_DIR$/preprocessing_for_rnn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-354" />
+        <state relative-caret-position="260">
+          <caret line="13" column="83" selection-start-line="13" selection-start-column="83" selection-end-line="13" selection-end-column="118" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test video read from file.py">
@@ -522,27 +464,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/RNNLM_Exercise_(solution).ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/preprocessing_for_rnn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="83" selection-start-line="13" selection-start-column="83" selection-end-line="13" selection-end-column="118" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/OpenPoseVideo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="24" lean-forward="true" selection-start-line="17" selection-end-line="24" />
+        <state relative-caret-position="180">
+          <caret line="21" column="16" lean-forward="true" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
@@ -551,8 +476,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/OpenPoseImage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="260">
+          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
