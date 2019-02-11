@@ -51,6 +51,8 @@ W = output.shape[3]
 # Empty list to store the detected keypoints
 points = []
 
+is_None = False
+df_is_empty = True
 for i in range(nPoints):
     # confidence map of corresponding body's part.
     probMap = output[0, i, :, :]
@@ -70,6 +72,13 @@ for i in range(nPoints):
         points.append((int(x), int(y)))
     else :
         points.append(None)
+        is_None = True
+    if is_None:
+        continue
+    flat_point = [e for l in points for e in l]
+    #         print(flat_point)
+    flat_array = np.array([e for l in points for e in l]) / 400
+    point_dict = {i: flat_array[i] for i in np.arange(len(flat_array))}
 
 # Draw Skeleton
 for pair in POSE_PAIRS:
