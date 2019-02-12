@@ -32,7 +32,7 @@ inWidth = 368
 inHeight = 368
 threshold = 0.1
 
-input_source = "Roman10.MOV"
+input_source = "The Pull-Up.mp4"
 cap = cv2.VideoCapture(input_source)
 hasFrame, frame = cap.read()
 
@@ -46,7 +46,7 @@ while cv2.waitKey(1) < 0:
     t = time.time()
     hasFrame, frame = cap.read()
     counter += 1
-    if np.mod(counter, 10) != 0:
+    if np.mod(counter, 30) != 0:
         continue
     frameCopy = np.copy(frame)
     if not hasFrame:
@@ -85,11 +85,19 @@ while cv2.waitKey(1) < 0:
             # Add the point to the list if the probability is greater than the threshold
             points.append((int(x), int(y)))
         else:
-            points.append((None, None))
-
-    flat_array = np.array([feature for point in points for feature in point])
+            points.append(None)
+    flat_array = []
+    for point in points:
+        if point is None:
+            flat_array.append(None)
+            flat_array.append(None)
+        else:
+            for feature in point:
+                flat_array.append(feature)
+    flat_array = pd.Series(np.array(flat_array))
+    # flat_array = np.array([feature for point in points for feature in point])
     if df_is_empty:
-        df = pd.DataFrame(flat_array, index=[0])
+        df = pd.DataFrame(flat_array)
         df_is_empty = False
     else:
         df = df.append(flat_array, ignore_index=True)
@@ -103,7 +111,7 @@ while cv2.waitKey(1) < 0:
             cv2.line(frame, points[partA], points[partB], (0, 255, 255), 3, lineType=cv2.LINE_AA)
             cv2.circle(frame, points[partA], 8, (0, 0, 255), thickness=-1, lineType=cv2.FILLED)
             cv2.circle(frame, points[partB], 8, (0, 0, 255), thickness=-1, lineType=cv2.FILLED)
-        print(points)
+        # print(points)
     # cv2.putText(frame, "time taken = {:.2f} sec".format(time.time() - t), (50, 50), cv2.FONT_HERSHEY_COMPLEX, .8,
     #             (255, 50, 0), 2, lineType=cv2.LINE_AA)
     # cv2.putText(frame, "OpenPose using OpenCV", (50, 50), cv2.FONT_HERSHEY_COMPLEX, 1, (255, 50, 0), 2, lineType=cv2.LINE_AA)
@@ -113,4 +121,4 @@ while cv2.waitKey(1) < 0:
     vid_writer.write(frame)
 
 vid_writer.release()
-print(df)
+df.to_csv('output_fd.csv')
