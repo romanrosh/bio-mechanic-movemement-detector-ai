@@ -1,6 +1,7 @@
 import cv2
 import time
 import numpy as np
+import pandas as pd
 
 MODE = "BODY25"
 
@@ -40,6 +41,7 @@ vid_writer = cv2.VideoWriter('./destination/output.avi', cv2.VideoWriter_fourcc(
 
 net = cv2.dnn.readNetFromCaffe(protoFile, weightsFile)
 counter = 0
+df_is_empty = True
 while cv2.waitKey(1) < 0:
     t = time.time()
     hasFrame, frame = cap.read()
@@ -83,7 +85,14 @@ while cv2.waitKey(1) < 0:
             # Add the point to the list if the probability is greater than the threshold
             points.append((int(x), int(y)))
         else:
-            points.append(None)
+            points.append((None, None))
+
+    flat_array = np.array([feature for point in points for feature in point])
+    if df_is_empty:
+        df = pd.DataFrame(flat_array, index=[0])
+        df_is_empty = False
+    else:
+        df = df.append(flat_array, ignore_index=True)
 
     # Draw Skeleton
     for pair in POSE_PAIRS:
@@ -104,3 +113,4 @@ while cv2.waitKey(1) < 0:
     vid_writer.write(frame)
 
 vid_writer.release()
+print(df)
