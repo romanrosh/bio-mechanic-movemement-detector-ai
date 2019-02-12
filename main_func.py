@@ -1,5 +1,9 @@
 from tkinter import *
 import cv2
+import OpenPoseVideo
+
+OUTPUT = './destination/'
+MODE = 'BODY25'
 
 
 def video_cut(source):
@@ -20,7 +24,7 @@ def video_cut(source):
         if ret == True:
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             gray = cv2.resize(gray, dsize=(400, 400))
-            cv2.imwrite('destination//'+str(counter)+'.jpg', gray)
+            cv2.imwrite(OUTPUT+'/' + str(counter) + '.jpg', gray)
             counter += 1
             cv2.imshow('frame', gray)
         else:
@@ -31,12 +35,16 @@ def video_cut(source):
     cap.release()
     cv2.destroyAllWindows()
 
+
 def button2(param):
-    print('inside button2', param)
+
+    print(param)
+    df=OpenPoseVideo.OpenPoseVideo(param, OUTPUT, MODE)
 
 
 def button3(param):
     print('inside button3', param)
+
 
 def button4(param):
     print('inside button4', param)
@@ -48,22 +56,22 @@ def main():
     root.resizable(width=FALSE, height=FALSE)
     root.geometry("630x700")
 
-    headerinputtext = Label(root, text='Files pre-processing', anchor=W)
+    headerinputtext = Label(root, text='Bio mechanic analyzer', anchor=W)
     headerinputtext.place(x=10, y=10, height=25)
 
-    video_cutinputtext = Label(root, text='video_cut', anchor=W)
+    video_cutinputtext = Label(root, text='Video to pictures', anchor=W)
     video_cutinputtext.place(x=10, y=70, width=250, height=20)
     video_cutinput = Entry(root)
     video_cutinput.place(x=10, y=100, width=70 + (input_width + 20) * 2, height=25)
-    video_cut_button = Button(root, text='video_cut', command=lambda: video_cut(video_cutinput.get()))
+    video_cut_button = Button(root, text='Go', command=lambda: video_cut(video_cutinput.get()))
     video_cut_button.config(relief=RAISED)
     video_cut_button.place(x=450, y=100, width=100, height=25)
 
-    button2inputtext = Label(root, text='Train', anchor=W)
+    button2inputtext = Label(root, text='Analyze points from video', anchor=W)
     button2inputtext.place(x=10, y=130, width=250, height=25)
     button2input = Entry(root)
     button2input.place(x=10, y=160, width=70 + (input_width + 20) * 2, height=25)
-    goButton2 = Button(root, text='Train', command=lambda: button2(button2input.get()))
+    goButton2 = Button(root, text='Go', command=lambda: button2(button2input.get()))
     goButton2.config(relief=RAISED)
     goButton2.place(x=450, y=160, width=100, height=25)
 
