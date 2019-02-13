@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="53758124-a276-4243-848a-351562495724" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenPoseVideo.py" beforeDir="false" afterPath="$PROJECT_DIR$/OpenPoseVideo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenPoseImage.py" beforeDir="false" afterPath="$PROJECT_DIR$/OpenPoseImage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TOM/create_dataframe.py" beforeDir="false" afterPath="$PROJECT_DIR$/TOM/create_dataframe.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test video rendering.py" beforeDir="false" afterPath="$PROJECT_DIR$/test video rendering.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,17 +14,20 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/bio_mechanic_movmement_detector_ai$preprocessing_for_rnn.coverage" NAME="preprocessing_for_rnn Coverage Results" MODIFIED="1549818070258" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TOM" />
+    <SUITE FILE_PATH="coverage/bio_mechanic_movmement_detector_ai$webcam_app.coverage" NAME="webcam_app Coverage Results" MODIFIED="1550062037174" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/webcam" />
+    <SUITE FILE_PATH="coverage/bio_mechanic_movmement_detector_ai$preprocessing_for_rnn.coverage" NAME="preprocessing_for_rnn Coverage Results" MODIFIED="1549979073770" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TOM" />
+    <SUITE FILE_PATH="coverage/bio_mechanic_movmement_detector_ai$create_dataframe.coverage" NAME="create_dataframe Coverage Results" MODIFIED="1550047390013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TOM" />
+    <SUITE FILE_PATH="coverage/bio_mechanic_movmement_detector_ai$test_video_rendering.coverage" NAME="test video rendering Coverage Results" MODIFIED="1550061151298" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/OpenPoseVideo.py">
+        <entry file="file://$PROJECT_DIR$/webcam/webcam_app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="42" lean-forward="true" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+            <state relative-caret-position="285">
+              <caret line="19" column="58" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
               <folding>
-                <element signature="e#0#10#0" expanded="true" />
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -48,39 +53,33 @@
       <find>8, 12</find>
       <find>14,19</find>
       <find>wri</find>
-      <find>model</find>
-      <find>pre</find>
-      <find>frame</find>
-      <find>hasFrame</find>
-      <find>empty_</find>
-      <find>;</find>
-      <find>df</find>
-      <find>roman10</find>
-      <find>empty</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/main_func.py" />
         <option value="$PROJECT_DIR$/preprocessing_for_rnn.py" />
-        <option value="$PROJECT_DIR$/TOM/preprocessing_for_rnn.py" />
         <option value="$PROJECT_DIR$/test video read from file.py" />
         <option value="$PROJECT_DIR$/test remove background.py" />
-        <option value="$PROJECT_DIR$/points.py" />
-        <option value="$PROJECT_DIR$/OpenPoseImage.py" />
-        <option value="$PROJECT_DIR$/main_func.py" />
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/OpenPoseVideo.py" />
+        <option value="$PROJECT_DIR$/TOM/__main__.py" />
+        <option value="$PROJECT_DIR$/TOM/main.py" />
+        <option value="$PROJECT_DIR$/TOM/preprocessing_for_rnn.py" />
+        <option value="$PROJECT_DIR$/TOM/create_dataframe.py" />
+        <option value="$PROJECT_DIR$/OpenPoseImage.py" />
+        <option value="$PROJECT_DIR$/test video rendering.py" />
+        <option value="$PROJECT_DIR$/webcam_app.py" />
+        <option value="$PROJECT_DIR$/webcam/webcam_app.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-85" />
-    <option name="y" value="-20" />
+    <option name="x" value="-82" />
+    <option name="y" value="-17" />
     <option name="width" value="1920" />
     <option name="height" value="1080" />
   </component>
@@ -89,6 +88,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -96,11 +96,20 @@
               <item name="bio-mechanic-movmement-detector-ai" type="b2602c69:ProjectViewProjectNode" />
               <item name="bio-mechanic-movmement-detector-ai" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="bio-mechanic-movmement-detector-ai" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bio-mechanic-movmement-detector-ai" type="462c0819:PsiDirectoryNode" />
+              <item name="TOM" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bio-mechanic-movmement-detector-ai" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bio-mechanic-movmement-detector-ai" type="462c0819:PsiDirectoryNode" />
+              <item name="webcam" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -132,28 +141,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.OpenPoseVideo">
-    <configuration name="OpenPoseImage" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="bio-mechanic-movmement-detector-ai" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OpenPoseImage.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.webcam_app">
     <configuration name="OpenPoseVideo" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bio-mechanic-movmement-detector-ai" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -166,6 +154,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OpenPoseVideo.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -175,7 +164,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="OpenPoseVideo_with_dataframe" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="create_dataframe" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bio-mechanic-movmement-detector-ai" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -183,11 +172,34 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TOM" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OpenPoseVideo_with_dataframe.py" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TOM/create_dataframe.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="preprocessing_for_rnn" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bio-mechanic-movmement-detector-ai" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TOM" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TOM/preprocessing_for_rnn.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -208,6 +220,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test video rendering.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -217,7 +230,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="webcam_app" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bio-mechanic-movmement-detector-ai" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -225,11 +238,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/webcam" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/webcam/webcam_app.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -240,11 +254,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.OpenPoseVideo" />
+        <item itemvalue="Python.webcam_app" />
         <item itemvalue="Python.test video rendering" />
-        <item itemvalue="Python.OpenPoseVideo_with_dataframe" />
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.OpenPoseImage" />
+        <item itemvalue="Python.create_dataframe" />
+        <item itemvalue="Python.preprocessing_for_rnn" />
+        <item itemvalue="Python.OpenPoseVideo" />
       </list>
     </recent_temporary>
   </component>
@@ -317,67 +331,18 @@
       <option name="project" value="LOCAL" />
       <updated>1549872002866</updated>
     </task>
-    <task id="LOCAL-00009" summary="Adding Body25">
-      <created>1549892567586</created>
+    <task id="LOCAL-00009" summary="creating dataframe and saving it using numpy object">
+      <created>1549919517436</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1549892567586</updated>
+      <updated>1549919517436</updated>
     </task>
-    <task id="LOCAL-00010" summary="Adding Body25">
-      <created>1549892583485</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1549892583485</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Adding Body25">
-      <created>1549899535810</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1549899535810</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Adding Body25">
-      <created>1549908043133</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1549908043133</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Adding Body25">
-      <created>1549908067736</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1549908067736</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Adding Body25">
-      <created>1549959811804</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1549959811804</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Adding Body25">
-      <created>1549980353170</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1549980353172</updated>
-    </task>
-    <task id="LOCAL-00016" summary="excel from dataframe, now need angles">
-      <created>1549993187298</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1549993187298</updated>
-    </task>
-    <option name="localTasksCounter" value="17" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14316000" />
+    <option name="totallyTimeSpent" value="34850000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -389,26 +354,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17713153" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16727717" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32959184" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3286119" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3286119" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.296034" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.29693878" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -428,19 +391,8 @@
     <MESSAGE value="Videos to pics done&#10;still working on storing the trace angles" />
     <MESSAGE value="Adding open pose video and image processing" />
     <MESSAGE value="Adding Body25" />
-    <MESSAGE value="excel from dataframe, now need angles" />
-    <option name="LAST_COMMIT_MESSAGE" value="excel from dataframe, now need angles" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <default-breakpoints>
-        <breakpoint type="python-exception">
-          <properties notifyOnTerminate="true" exception="BaseException">
-            <option name="notifyOnTerminate" value="true" />
-          </properties>
-        </breakpoint>
-      </default-breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="creating dataframe and saving it using numpy object" />
+    <option name="LAST_COMMIT_MESSAGE" value="creating dataframe and saving it using numpy object" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/end to end - pics.ipynb">
@@ -451,7 +403,6 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/647096018/posix.py" />
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/647096018/builtins.py" />
     <entry file="file://$PROJECT_DIR$/Squat_Project_submission_1.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -473,6 +424,7 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test.py" />
     <entry file="file://$PROJECT_DIR$/binarize.py" />
     <entry file="file://$PROJECT_DIR$/Detect corners.py" />
     <entry file="file://$PROJECT_DIR$/detect corners 2.py" />
@@ -494,16 +446,6 @@
     <entry file="file://$PROJECT_DIR$/test detect edges.py" />
     <entry file="file://$PROJECT_DIR$/test remove background.py" />
     <entry file="file://$USER_HOME$/Desktop/RNNLM_Exercise_(solution).ipynb" />
-    <entry file="file://$PROJECT_DIR$/test video read from file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resize.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -513,75 +455,114 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/1.jpg">
+    <entry file="file://$PROJECT_DIR$/Output-Keypoints.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/Output-Skeleton.jpg">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/preprocessing_for_rnn.py">
+    <entry file="file://$PROJECT_DIR$/1.jpg" />
+    <entry file="file://$PROJECT_DIR$/OpenPoseVideo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1480">
-          <caret line="13" column="83" selection-start-line="13" selection-start-column="83" selection-end-line="13" selection-end-column="118" />
+        <state relative-caret-position="300">
+          <caret line="96" column="21" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rename.py">
+    <entry file="file://$PROJECT_DIR$/test video read from file.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/tkinter/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="1701" selection-start-line="1701" selection-end-line="1701" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angles.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="240">
+          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Output-Skeleton.jpg">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/preprocessing_for_rnn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="83" column="38" lean-forward="true" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.py" />
     <entry file="file://$PROJECT_DIR$/main_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="820">
-          <caret line="41" column="55" selection-start-line="41" selection-start-column="55" selection-end-line="41" selection-end-column="55" />
+        <state relative-caret-position="300">
+          <caret line="20" column="49" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OpenPoseVideo_with_dataframe.py" />
-    <entry file="file://$PROJECT_DIR$/Output-Keypoints.jpg">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/TOM/__main__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TOM/main.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/647096018/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="2978" column="8" selection-start-line="2978" selection-start-column="8" selection-end-line="2978" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/download from youtube.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TOM/preprocessing_for_rnn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1220">
+          <caret line="9" selection-start-line="7" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TOM/create_dataframe.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="31" selection-start-line="21" selection-start-column="4" selection-end-line="22" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///anaconda3/envs/cs231n/lib/python3.6/os.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="194" column="4" selection-start-line="194" selection-start-column="4" selection-end-line="194" selection-end-column="4" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test video rendering.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="325">
+          <caret line="127" lean-forward="true" selection-start-line="127" selection-end-line="127" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webcam_app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="144" lean-forward="true" selection-start-line="144" selection-end-line="144" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -590,30 +571,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/OpenPoseImage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="87" column="23" selection-start-line="87" selection-start-column="23" selection-end-line="87" selection-end-column="23" />
+        <state relative-caret-position="495">
+          <caret line="33" column="28" lean-forward="true" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/keypoints_pose_25.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/points.py">
+    <entry file="file://$PROJECT_DIR$/webcam/webcam_app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OpenPoseVideo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="42" lean-forward="true" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+        <state relative-caret-position="285">
+          <caret line="19" column="58" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
