@@ -3,7 +3,7 @@ import time
 import numpy as np
 import pandas as pd
 import os
-
+from angles import angle
 MODE = "BODY25"
 input_source = "The Back Squat.mp4"
 # The Air Squat.mp4
