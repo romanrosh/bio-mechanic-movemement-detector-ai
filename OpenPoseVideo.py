@@ -144,7 +144,20 @@ while cv2.waitKey(1) < 0:
 
 vid_writer.release()
 
+## add column names to the dataframe
 df.columns = BODY_25_COLUMNS
+hip_vector = []
+shin_vector = []
+knee_angle = []
+for row in df.iterrows():
+    hip_vector.append(np.array([row['right hip x']-row['right knee x'], row['right hip y'] - row['right knee y']]))
+    shin_vector.append(np.array([row['right ankle x'] - row['right knee x'], row['right ankle y'] - row['right knee y']]))
+    knee_angle.append(angle(hip_vector[-1], shin_vector[-1]))
+
+df['hip vector'] = pd.Series(hip_vector)
+df['knee vector'] = pd.Series(shin_vector)
+df['knee angle'] = pd.Series(knee_angle)
+
 
 exists = os.path.isfile(OUTPUT_CSV)
 if exists:
