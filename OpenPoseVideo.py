@@ -2,9 +2,14 @@ import cv2
 import time
 import numpy as np
 import pandas as pd
+import os
 
 MODE = "BODY25"
-OUTPUT_CSV = './destination/output_fd.csv'
+input_source = "The Back Squat.mp4"
+# The Air Squat.mp4
+output_destination = './destination/' + input_source.split('.')[0]+'.avi'
+OUTPUT_CSV = './destination/output.csv'
+FRAMES_TO_TAKE = 1
 
 if MODE is "COCO":
     protoFile = "C:/Users/romanrosh/openpose-1.4.0-win64-gpu-binaries/models/pose/coco/pose_deploy_linevec.prototxt"
@@ -33,22 +38,24 @@ inWidth = 368
 inHeight = 368
 threshold = 0.1
 
-input_source = "The Back Squat.mp4"
 cap = cv2.VideoCapture(input_source)
 hasFrame, frame = cap.read()
 
-vid_writer = cv2.VideoWriter('./destination/output.avi', cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), 10,
+vid_writer = cv2.VideoWriter(output_destination, cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), 10,
                              (frame.shape[1], frame.shape[0]))
 
 net = cv2.dnn.readNetFromCaffe(protoFile, weightsFile)
 counter = 0
 df_is_empty = True
 while cv2.waitKey(1) < 0:
+    if cap.isOpened() == False:
+        break
     t = time.time()
     hasFrame, frame = cap.read()
     counter += 1
-    if np.mod(counter, 5) != 0:
+    if np.mod(counter, FRAMES_TO_TAKE) != 0:
         continue
+    print('frame',counter)
     frameCopy = np.copy(frame)
     if not hasFrame:
         cv2.waitKey()
@@ -102,7 +109,7 @@ while cv2.waitKey(1) < 0:
         df_is_empty = False
     else:
         df = df.append(flat_array, ignore_index=True)
-
+    print('dataframe size',len(df))
     # Draw Skeleton
     for pair in POSE_PAIRS:
         partA = pair[0]
@@ -122,7 +129,10 @@ while cv2.waitKey(1) < 0:
     vid_writer.write(frame)
 
 vid_writer.release()
-df.to_csv(OUTPUT_CSV)
 
-with open(OUTPUT_CSV, 'a') as f:
-    df.to_csv(f, header=False)
+exists = os.path.isfile(OUTPUT_CSV)
+if exists:
+    with open(OUTPUT_CSV, 'a') as f:
+        df.to_csv(f, header=False)
+else:
+    df.to_csv(OUTPUT_CSV)
