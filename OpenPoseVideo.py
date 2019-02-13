@@ -98,7 +98,7 @@ while cv2.waitKey(1) < 0:
     flat_array = pd.Series(np.array(flat_array))
     # flat_array = np.array([feature for point in points for feature in point])
     if df_is_empty:
-        df = pd.DataFrame(flat_array)
+        df = pd.DataFrame([flat_array])
         df_is_empty = False
     else:
         df = df.append(flat_array, ignore_index=True)
