@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 MODE = "BODY25"
-OUTPUT_CSV = 'output_fd.csv'
+OUTPUT_CSV = './destination/output_fd.csv'
 
 if MODE is "COCO":
     protoFile = "C:/Users/romanrosh/openpose-1.4.0-win64-gpu-binaries/models/pose/coco/pose_deploy_linevec.prototxt"
@@ -33,7 +33,7 @@ inWidth = 368
 inHeight = 368
 threshold = 0.1
 
-input_source = "The Pull-Up.mp4"
+input_source = "The Back Squat.mp4"
 cap = cv2.VideoCapture(input_source)
 hasFrame, frame = cap.read()
 
@@ -47,7 +47,7 @@ while cv2.waitKey(1) < 0:
     t = time.time()
     hasFrame, frame = cap.read()
     counter += 1
-    if np.mod(counter, 30) != 0:
+    if np.mod(counter, 5) != 0:
         continue
     frameCopy = np.copy(frame)
     if not hasFrame:
@@ -123,3 +123,6 @@ while cv2.waitKey(1) < 0:
 
 vid_writer.release()
 df.to_csv(OUTPUT_CSV)
+
+with open(OUTPUT_CSV, 'a') as f:
+    df.to_csv(f, header=False)
