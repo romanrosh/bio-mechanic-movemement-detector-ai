@@ -33,8 +33,24 @@ elif MODE is "BODY25":
                   [12, 13], [0, 14], [0, 15], [14, 16], [15, 17],
                   [10, 11], [8, 12], [12, 13], [13, 14], [1, 0], [0, 15], [0, 16], [16, 18], [2, 17], [5, 18], [14, 19],
                   [19, 20], [14, 21], [11, 22], [22, 23], [11, 24]]
+    BODY_25_COLUMNS = ["head 0 x", "head 0 y", "throat x", "throat y", "right shoulder x", "right shoulder y",
+                       "right elbow x", \
+                       "right elbow y", "right hand x", "right hand y", "left shoulder x", "left shoulder y",
+                       "left elbow x", \
+                       "left elbow y", "left hand x", "left hand y", "pelvis x", "pelvis y", "right hip x",
+                       "right hip y", \
+                       "right knee x", "right knee y", "right ankle x", "right ankle y", "left hip x", "left hip y",
+                       "left knee x", \
+                       "left knee y", "left ankle x", "left ankle y", "left heel x", "head 1 x", "head 1 y", "head 2 x",
+                       "head 2 y", \
+                       "head 3 x", "head 3 y", "head 4 x", "head 4 y", "left foot x", "left foot y", "left toes x",
+                       "left toes y", \
+                       "left heel x", "left heel y", "right foot x", "right foot y", "right toes x", "right toes y",
+                       "right heel x", "right heel y"]
 
-inWidth = 368
+
+
+    inWidth = 368
 inHeight = 368
 threshold = 0.1
 
@@ -129,7 +145,7 @@ while cv2.waitKey(1) < 0:
     vid_writer.write(frame)
 
 vid_writer.release()
-
+df.columns = BODY_25_COLUMNS
 exists = os.path.isfile(OUTPUT_CSV)
 if exists:
     with open(OUTPUT_CSV, 'a') as f:
