@@ -19,15 +19,15 @@ elif MODE is "MPI":
                   [11, 12], [12, 13]]
 
 elif MODE is "BODY25":
-    protoFile = "/Users/tomcohen/Documents/ITC/project_2/openpose-master/models/pose/body_25/pose_deploy.prototxt"
-    weightsFile = "/Users/tomcohen/Documents/ITC/project_2/openpose-master/models/pose/body_25/pose_iter_584000.caffemodel"
+    protoFile = "C:/Users/romanrosh/openpose-1.4.0-win64-gpu-binaries/models/pose/coco/pose_deploy_linevec.prototxt"
+    weightsFile = "C:/Users/romanrosh/openpose-1.4.0-win64-gpu-binaries/models/pose/coco/pose_iter_440000.caffemodel"
     nPoints = 25
     POSE_PAIRS = [[1, 0], [1, 2], [1, 5], [2, 3], [3, 4], [5, 6], [6, 7], [1, 8], [8, 9], [9, 10], [1, 11], [11, 12],
                   [12, 13], [0, 14], [0, 15], [14, 16], [15, 17],
                   [10, 11], [8, 12], [12, 13], [13, 14], [1, 0], [0, 15], [0, 16], [16, 18], [2, 17], [5, 18], [14, 19],
                   [19, 20], [14, 21], [11, 22], [22, 23], [11, 24]]
 
-frame = cv2.imread("2.jpg")
+frame = cv2.imread("1.jpg")
 frame = cv2.resize(frame, dsize=(1000, 800))
 frameCopy = np.copy(frame)
 frameWidth = frame.shape[1]

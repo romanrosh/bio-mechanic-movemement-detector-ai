@@ -7,9 +7,9 @@ import os
 MODE = "BODY25"
 input_source = "The Back Squat.mp4"
 # The Air Squat.mp4
-output_destination = './destination/' + input_source.split('.')[0]+'.avi'
+output_destination = './destination/' + input_source.split('.')[0] + '.avi'
 OUTPUT_CSV = './destination/output.csv'
-FRAMES_TO_TAKE = 1
+FRAMES_TO_TAKE = 200
 
 if MODE is "COCO":
     protoFile = "C:/Users/romanrosh/openpose-1.4.0-win64-gpu-binaries/models/pose/coco/pose_deploy_linevec.prototxt"
@@ -41,14 +41,12 @@ elif MODE is "BODY25":
                        "right hip y", \
                        "right knee x", "right knee y", "right ankle x", "right ankle y", "left hip x", "left hip y",
                        "left knee x", \
-                       "left knee y", "left ankle x", "left ankle y", "left heel x", "head 1 x", "head 1 y", "head 2 x",
+                       "left knee y", "left ankle x", "left ankle y", "head 1 x", "head 1 y", "head 2 x",
                        "head 2 y", \
                        "head 3 x", "head 3 y", "head 4 x", "head 4 y", "left foot x", "left foot y", "left toes x",
                        "left toes y", \
                        "left heel x", "left heel y", "right foot x", "right foot y", "right toes x", "right toes y",
                        "right heel x", "right heel y"]
-
-
 
     inWidth = 368
 inHeight = 368
@@ -71,7 +69,7 @@ while cv2.waitKey(1) < 0:
     counter += 1
     if np.mod(counter, FRAMES_TO_TAKE) != 0:
         continue
-    print('frame',counter)
+    print('frame', counter)
     frameCopy = np.copy(frame)
     if not hasFrame:
         cv2.waitKey()
@@ -125,7 +123,7 @@ while cv2.waitKey(1) < 0:
         df_is_empty = False
     else:
         df = df.append(flat_array, ignore_index=True)
-    print('dataframe size',len(df))
+    print('dataframe size', len(df))
     # Draw Skeleton
     for pair in POSE_PAIRS:
         partA = pair[0]
@@ -145,7 +143,9 @@ while cv2.waitKey(1) < 0:
     vid_writer.write(frame)
 
 vid_writer.release()
+
 df.columns = BODY_25_COLUMNS
+
 exists = os.path.isfile(OUTPUT_CSV)
 if exists:
     with open(OUTPUT_CSV, 'a') as f:
