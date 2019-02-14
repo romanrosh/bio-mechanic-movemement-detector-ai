@@ -165,6 +165,14 @@ vid_writer.release()
 
 ## add column names to the dataframe
 df.columns = BODY_25_COLUMNS
+
+head_x_coordinates = [np.nanmean([row[1][0], row[1][32], row[1][34], row[1][36],row[1][38]]) for row in df.iterrows()]
+head_y_coordinates = [np.nanmean([row[1][1], row[1][33], row[1][35], row[1][37],row[1][39]]) for row in df.iterrows()]
+df['25-XMeanHeadhead'] = head_x_coordinates
+df['25-YMeanHeadhead'] = head_y_coordinates
+
+
+
 # hip_vector = []
 # shin_vector = []
 # knee_angle = []
