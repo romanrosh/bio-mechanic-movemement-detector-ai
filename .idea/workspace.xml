@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="53758124-a276-4243-848a-351562495724" name="Default Changelist" comment="Addition of columns names" />
+    <list default="true" id="53758124-a276-4243-848a-351562495724" name="Default Changelist" comment="working">
+      <change afterPath="$PROJECT_DIR$/TOM/create_dataframe.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TOM/preprocessing_for_rnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/TOM/preprocessing_for_rnn.py" afterDir="false" />
+    </list>
+    <list id="e8adebb3-868f-4a66-a9af-681f57df25d8" name="Revert: working" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -10,19 +15,64 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/bio_mechanic_movmement_detector_ai$webcam_app.coverage" NAME="webcam_app Coverage Results" MODIFIED="1550135376798" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/webcam" />
-    <SUITE FILE_PATH="coverage/bio_mechanic_movmement_detector_ai$preprocessing_for_rnn.coverage" NAME="preprocessing_for_rnn Coverage Results" MODIFIED="1549979073770" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TOM" />
-    <SUITE FILE_PATH="coverage/bio_mechanic_movmement_detector_ai$create_dataframe.coverage" NAME="create_dataframe Coverage Results" MODIFIED="1550047390013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TOM" />
+    <SUITE FILE_PATH="coverage/bio_mechanic_movmement_detector_ai$preprocessing_for_rnn.coverage" NAME="preprocessing_for_rnn Coverage Results" MODIFIED="1550152187255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TOM" />
+    <SUITE FILE_PATH="coverage/bio_mechanic_movmement_detector_ai$create_dataframe.coverage" NAME="create_dataframe Coverage Results" MODIFIED="1550153629368" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TOM" />
     <SUITE FILE_PATH="coverage/bio_mechanic_movmement_detector_ai$test_video_rendering.coverage" NAME="test video rendering Coverage Results" MODIFIED="1550061151298" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webcam/webcam_app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+            <state relative-caret-position="-419">
+              <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TOM/preprocessing_for_rnn.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="508">
+              <caret line="127" column="20" selection-start-line="127" selection-start-column="20" selection-end-line="127" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TOM/create_dataframe.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///anaconda3/envs/cs231n/lib/python3.6/site-packages/pandas/core/frame.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="129">
+              <caret line="333" column="8" selection-start-line="333" selection-start-column="8" selection-end-line="333" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/OpenPoseVideo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="148">
+              <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="68" selection-end-column="52" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -64,15 +114,15 @@
         <option value="$PROJECT_DIR$/test remove background.py" />
         <option value="$PROJECT_DIR$/TOM/__main__.py" />
         <option value="$PROJECT_DIR$/TOM/main.py" />
-        <option value="$PROJECT_DIR$/TOM/preprocessing_for_rnn.py" />
-        <option value="$PROJECT_DIR$/TOM/create_dataframe.py" />
         <option value="$PROJECT_DIR$/test video rendering.py" />
         <option value="$PROJECT_DIR$/webcam_app.py" />
-        <option value="$PROJECT_DIR$/webcam/webcam_app.py" />
         <option value="$PROJECT_DIR$/main_func.py" />
         <option value="$PROJECT_DIR$/angles.py" />
         <option value="$PROJECT_DIR$/OpenPoseVideo.py" />
         <option value="$PROJECT_DIR$/OpenPoseImage.py" />
+        <option value="$PROJECT_DIR$/webcam/webcam_app.py" />
+        <option value="$PROJECT_DIR$/TOM/preprocessing_for_rnn.py" />
+        <option value="$PROJECT_DIR$/TOM/create_dataframe.py" />
       </list>
     </option>
   </component>
@@ -92,6 +142,11 @@
             <path>
               <item name="bio-mechanic-movmement-detector-ai" type="b2602c69:ProjectViewProjectNode" />
               <item name="bio-mechanic-movmement-detector-ai" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bio-mechanic-movmement-detector-ai" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bio-mechanic-movmement-detector-ai" type="462c0819:PsiDirectoryNode" />
+              <item name="TOM" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bio-mechanic-movmement-detector-ai" type="b2602c69:ProjectViewProjectNode" />
@@ -134,7 +189,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.webcam_app">
+  <component name="RunManager" selected="Python.create_dataframe">
     <configuration name="OpenPoseImage" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bio-mechanic-movmement-detector-ai" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -179,7 +234,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="angles" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="create_dataframe" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bio-mechanic-movmement-detector-ai" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -187,12 +242,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TOM" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/angles.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TOM/create_dataframe.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -201,7 +256,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="webcam_app (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="preprocessing_for_rnn" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bio-mechanic-movmement-detector-ai" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -209,12 +264,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TOM" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/webcam_app.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TOM/preprocessing_for_rnn.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -247,11 +302,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.create_dataframe" />
+        <item itemvalue="Python.preprocessing_for_rnn" />
         <item itemvalue="Python.webcam_app" />
         <item itemvalue="Python.OpenPoseImage" />
         <item itemvalue="Python.OpenPoseVideo" />
-        <item itemvalue="Python.webcam_app (1)" />
-        <item itemvalue="Python.angles" />
       </list>
     </recent_temporary>
   </component>
@@ -261,6 +316,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="53758124-a276-4243-848a-351562495724" name="Default Changelist" comment="" />
+      <changelist id="e8adebb3-868f-4a66-a9af-681f57df25d8" name="Revert: working" comment="" />
       <created>1548775190938</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -268,7 +324,7 @@
       <workItem from="1549734681121" duration="854000" />
       <workItem from="1549794102952" duration="13462000" />
       <workItem from="1550062287418" duration="20000" />
-      <workItem from="1550135321979" duration="46000" />
+      <workItem from="1550135321979" duration="8659000" />
     </task>
     <task id="LOCAL-00001" summary="File updates">
       <created>1548783318191</created>
@@ -340,11 +396,18 @@
       <option name="project" value="LOCAL" />
       <updated>1550065088578</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="working">
+      <created>1550135461939</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1550135461939</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34916000" />
+    <option name="totallyTimeSpent" value="43529000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -357,18 +420,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17582418" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17582418" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.36685553" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36632654" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3989796" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3286119" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32857144" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.29693878" />
@@ -381,11 +445,37 @@
       <window_info anchor="right" id="R Packages" order="4" />
       <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" order="5" side_tool="true" weight="0.3295302" />
       <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" id="SciView" order="7" />
+      <window_info anchor="right" id="SciView" order="7" weight="0.23687424" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="File updates" />
@@ -395,7 +485,19 @@
     <MESSAGE value="Adding Body25" />
     <MESSAGE value="creating dataframe and saving it using numpy object" />
     <MESSAGE value="Addition of columns names" />
-    <option name="LAST_COMMIT_MESSAGE" value="Addition of columns names" />
+    <MESSAGE value="working" />
+    <option name="LAST_COMMIT_MESSAGE" value="working" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/TOM/create_dataframe.py</url>
+          <line>86</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/647096018/posix.py" />
@@ -480,8 +582,6 @@
     <entry file="file://$PROJECT_DIR$/TOM/__main__.py" />
     <entry file="file://$PROJECT_DIR$/TOM/main.py" />
     <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/647096018/builtins.py" />
-    <entry file="file://$PROJECT_DIR$/TOM/preprocessing_for_rnn.py" />
-    <entry file="file://$PROJECT_DIR$/TOM/create_dataframe.py" />
     <entry file="file:///anaconda3/envs/cs231n/lib/python3.6/os.py" />
     <entry file="file://$PROJECT_DIR$/1.jpg" />
     <entry file="file://$PROJECT_DIR$/2.jpg" />
@@ -549,22 +649,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/webcam/webcam_app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-419">
+          <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///anaconda3/envs/cs231n/lib/python3.6/site-packages/pandas/core/frame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="333" column="8" selection-start-line="333" selection-start-column="8" selection-end-line="333" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/OpenPoseVideo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        <state relative-caret-position="148">
+          <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="68" selection-end-column="52" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webcam/webcam_app.py">
+    <entry file="file://$PROJECT_DIR$/TOM/preprocessing_for_rnn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+        <state relative-caret-position="508">
+          <caret line="127" column="20" selection-start-line="127" selection-start-column="20" selection-end-line="127" selection-end-column="20" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TOM/create_dataframe.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>

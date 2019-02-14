@@ -4,6 +4,7 @@ import numpy as np
 import logging
 import math
 
+DIM = 51
 logging.basicConfig(level=logging.INFO)
 protoFile = "/Users/tomcohen/Documents/ITC/project_2/openpose-master/models/pose/body_25/pose_deploy.prototxt"
 weightsFile = "/Users/tomcohen/Documents/ITC/project_2/openpose-master/models/pose/body_25/pose_iter_584000.caffemodel"
@@ -12,9 +13,10 @@ weightsFile = "/Users/tomcohen/Documents/ITC/project_2/openpose-master/models/po
 class VideoToBody25:
     """object that will receive a path of a video and will eventually return a dataframe"""
 
-    def __init__(self, video_path, img_destination):
+    def __init__(self, video_path, img_destination, truth):
         self.video_path = video_path
         self.img_destination = img_destination
+        self.truth = truth
 
     def video_cut(self):
         """
@@ -34,8 +36,6 @@ class VideoToBody25:
                 # if not created then raise error
         except OSError:
             print('Error: Creating directory of data')
-
-
 
             # frame
         currentframe = 0
@@ -100,10 +100,13 @@ class VideoToBody25:
             y = (frameHeight * point[1]) / H
             image_skel = np.zeros((frameHeight, frameWidth, 3))
             if prob > threshold:
-                points.append((int(x), int(y)))
+                points.append(int(x))
+                points.append(int(y))
             else:
                 points.append(None)
+                points.append(None)
 
+        points.append(self.truth)
         return points
 
     def build_array(self, n=15):
@@ -115,8 +118,8 @@ class VideoToBody25:
         self.video_cut()
 
         file_list = sorted(os.listdir(self.img_destination), key=lambda file: int(file.split('.')[0]))
-        c = math.ceil(len(file_list)/n)
-        array = np.zeros((n, 25), dtype=object)
+        c = math.ceil(len(file_list) / n)
+        array = np.zeros((n, DIM), dtype=object)
         for i, image_name in enumerate(file_list[::c]):
             image_path = os.path.join(self.img_destination, image_name)
             frame_coord = self.trace_skeleton(image_path)
