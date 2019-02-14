@@ -6,7 +6,7 @@ import os
 from angles import angle
 
 MODE = "BODY25"
-input_source = "250 consecutive squats.mp4"
+input_source = "The Air Squat.mp4"
 # 100 Body Squats Non Stop.mp4
 # --
 # Most Squats in 5-Minutes.mp4
@@ -17,7 +17,7 @@ input_source = "250 consecutive squats.mp4"
 
 output_destination ='./destination/' + input_source.split('.')[0] + '.avi'
 OUTPUT_CSV = './destination/output.csv'
-FRAMES_TO_TAKE = 30
+FRAMES_TO_TAKE = 100
 
 if MODE is "COCO":
     protoFile = "C:/Users/romanrosh/openpose-1.4.0-win64-gpu-binaries/models/pose/coco/pose_deploy_linevec.prototxt"
@@ -160,39 +160,10 @@ while cv2.waitKey(1) < 0:
     vid_writer.write(frame)
     if hasFrame == False:
         break
-
 vid_writer.release()
 
 ## add column names to the dataframe
 df.columns = BODY_25_COLUMNS
-
-head_x_coordinates = [np.nanmean([row[1][0], row[1][32], row[1][34], row[1][36],row[1][38]]) for row in df.iterrows()]
-head_y_coordinates = [np.nanmean([row[1][1], row[1][33], row[1][35], row[1][37],row[1][39]]) for row in df.iterrows()]
-df['25-XMeanHeadhead'] = head_x_coordinates
-df['25-YMeanHeadhead'] = head_y_coordinates
-
-
-
-# hip_vector = []
-# shin_vector = []
-# knee_angle = []
-# for row in df.iterrows():
-#     print(row)
-#     try:
-#         hip_vector.append(
-#             np.array([row['right hip x'] - row['right knee x'], row['right hip y'] - row['right knee y']]))
-#         shin_vector.append(
-#             np.array([row['right ankle x'] - row['right knee x'], row['right ankle y'] - row['right knee y']]))
-#         knee_angle.append(angle(hip_vector[-1], shin_vector[-1]))
-#     except:
-#         print('error in angle calculation')
-#         hip_vector.append(None)
-#         shin_vector.append(None)
-#         knee_angle.append(None)
-#
-# df['hip vector'] = pd.Series(hip_vector)
-# df['knee vector'] = pd.Series(shin_vector)
-# df['knee angle'] = pd.Series(knee_angle)
 
 exists = os.path.isfile(OUTPUT_CSV)
 if exists:
@@ -200,3 +171,13 @@ if exists:
         df.to_csv(f, header=False)
 else:
     df.to_csv(OUTPUT_CSV)
+
+df=pd.read_csv(OUTPUT_CSV)
+# df.dropna(inplace=True)
+# print(df.iloc[20:40])
+for i in range(len(df)):
+    # try:
+    u=(df.loc[i,'9-XRHip']-df.loc[i,'10-XRKnee'],df.loc[i,'9-YRHip']-df.loc[i,'10-YRKnee'])
+    v=(df.loc[i,'11-XRAnkle']-df.loc[i,'10-XRKnee'],df.loc[i,'11-YRAnkle']-df.loc[i,'10-YRKnee'])
+    c = np.dot(u, v) / np.linalg.norm(u) / np.linalg.norm(v)  # -> cosine of the angle
+    print('angle is',i,np.arccos(np.clip(c, -1, 1))*180/np.pi)

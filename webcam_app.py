@@ -124,6 +124,7 @@ def pose_estimation(file, origin_dir, estimation_dir):
             cv2.line(frame, points[partA], points[partB], (0, 255, 255), 2)
             cv2.circle(frame, points[partA], 8, (0, 0, 255), thickness=-1, lineType=cv2.FILLED)
 
+    cv2.imshow('test', frame)
     cv2.imwrite(estimation_dir + 'points_' + image_name, frameCopy)
     cv2.imwrite(estimation_dir + 'skeleton_' + image_name, frame)
 
