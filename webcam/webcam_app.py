@@ -16,6 +16,7 @@ ORIGIN_DIR = os.path.join(CURRENT_DIR, './images/snaps/')
 ESTIMATION_DIR = os.path.join(CURRENT_DIR, './images/estimation/')
 
 
+
 def take_snapshots(origin_dir):
     """take n number of snapshots , finish using escape"""
     if not os.path.exists(origin_dir):
