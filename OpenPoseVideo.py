@@ -4,12 +4,20 @@ import numpy as np
 import pandas as pd
 import os
 from angles import angle
+
 MODE = "BODY25"
-input_source = "The Back Squat.mp4"
+input_source = "250 consecutive squats.mp4"
+# 100 Body Squats Non Stop.mp4
+# --
+# Most Squats in 5-Minutes.mp4
 # The Air Squat.mp4
-output_destination = './destination/' + input_source.split('.')[0] + '.avi'
+# The Back Squat.mp4
+# Roman10.MOV
+# 250 consecutive squats.mp4
+
+output_destination ='./destination/' + input_source.split('.')[0] + '.avi'
 OUTPUT_CSV = './destination/output.csv'
-FRAMES_TO_TAKE = 200
+FRAMES_TO_TAKE = 30
 
 if MODE is "COCO":
     protoFile = "C:/Users/romanrosh/openpose-1.4.0-win64-gpu-binaries/models/pose/coco/pose_deploy_linevec.prototxt"
@@ -33,22 +41,34 @@ elif MODE is "BODY25":
                   [12, 13], [0, 14], [0, 15], [14, 16], [15, 17],
                   [10, 11], [8, 12], [12, 13], [13, 14], [1, 0], [0, 15], [0, 16], [16, 18], [2, 17], [5, 18], [14, 19],
                   [19, 20], [14, 21], [11, 22], [22, 23], [11, 24]]
-    BODY_25_COLUMNS = ["head 0 x", "head 0 y", "throat x", "throat y", "right shoulder x", "right shoulder y",
-                       "right elbow x", \
-                       "right elbow y", "right hand x", "right hand y", "left shoulder x", "left shoulder y",
-                       "left elbow x", \
-                       "left elbow y", "left hand x", "left hand y", "pelvis x", "pelvis y", "right hip x",
-                       "right hip y", \
-                       "right knee x", "right knee y", "right ankle x", "right ankle y", "left hip x", "left hip y",
-                       "left knee x", \
-                       "left knee y", "left ankle x", "left ankle y", "head 1 x", "head 1 y", "head 2 x",
-                       "head 2 y", \
-                       "head 3 x", "head 3 y", "head 4 x", "head 4 y", "left foot x", "left foot y", "left toes x",
-                       "left toes y", \
-                       "left heel x", "left heel y", "right foot x", "right foot y", "right toes x", "right toes y",
-                       "right heel x", "right heel y"]
 
-    inWidth = 368
+    BODY_25_COLUMNS = ["0-XNose",       "0-YNose",
+                       "1-XNeck",       "1-YNeck",
+                       "2-XRShoulder",  "2-YRShoulder",
+                       "3-XRElbow",     "3-YRElbow",
+                       "4-XRWrist",     "4-YRWrist",
+                       "5-XLShoulder",  "5-YLShoulder",
+                       "6-XLElbow",     "6-YLElbow",
+                       "7-XLWrist",     "7-YLWrist",
+                       "8-XMidHip",     "8-YMidHip",
+                       "9-XRHip",       "9-YRHip",
+                       "10-XRKnee",     "10-YRKnee",
+                       "11-XRAnkle",    "11-YRAnkle",
+                       "12-XLHip",      "12-YLHip",
+                       "13-XLKnee",     "13-YLKnee",
+                       "14-XLAnkle",    "14-YLAnkle",
+                       "15-XREye",      "15-YREye",
+                       "16-XLEye",      "16-YLEye",
+                       "17-XREar",      "17-YREar",
+                       "18-XLEar",      "18-YLEar",
+                       "19-XLBigToe",   "19-YLBigToe",
+                       "20-XLSmallToe", "20-YLSmallToe",
+                       "21-XLHeel",     "21-YLHeel",
+                       "22-XRBigToe",   "22-YRBigToe",
+                       "23-XRSmallToe", "23-YRSmallToe",
+                       "24-XRHeel",     "24-YRHeel"]
+
+inWidth = 368
 inHeight = 368
 threshold = 0.1
 
@@ -62,8 +82,6 @@ net = cv2.dnn.readNetFromCaffe(protoFile, weightsFile)
 counter = 0
 df_is_empty = True
 while cv2.waitKey(1) < 0:
-    if cap.isOpened() == False:
-        break
     t = time.time()
     hasFrame, frame = cap.read()
     counter += 1
@@ -139,25 +157,34 @@ while cv2.waitKey(1) < 0:
     # cv2.putText(frame, "OpenPose using OpenCV", (50, 50), cv2.FONT_HERSHEY_COMPLEX, 1, (255, 50, 0), 2, lineType=cv2.LINE_AA)
     # cv2.imshow('Output-Keypoints', frameCopy)
     cv2.imshow('Output-Skeleton', frame)
-
     vid_writer.write(frame)
+    if hasFrame == False:
+        break
 
 vid_writer.release()
 
 ## add column names to the dataframe
 df.columns = BODY_25_COLUMNS
-hip_vector = []
-shin_vector = []
-knee_angle = []
-for row in df.iterrows():
-    hip_vector.append(np.array([row['right hip x']-row['right knee x'], row['right hip y'] - row['right knee y']]))
-    shin_vector.append(np.array([row['right ankle x'] - row['right knee x'], row['right ankle y'] - row['right knee y']]))
-    knee_angle.append(angle(hip_vector[-1], shin_vector[-1]))
-
-df['hip vector'] = pd.Series(hip_vector)
-df['knee vector'] = pd.Series(shin_vector)
-df['knee angle'] = pd.Series(knee_angle)
-
+# hip_vector = []
+# shin_vector = []
+# knee_angle = []
+# for row in df.iterrows():
+#     print(row)
+#     try:
+#         hip_vector.append(
+#             np.array([row['right hip x'] - row['right knee x'], row['right hip y'] - row['right knee y']]))
+#         shin_vector.append(
+#             np.array([row['right ankle x'] - row['right knee x'], row['right ankle y'] - row['right knee y']]))
+#         knee_angle.append(angle(hip_vector[-1], shin_vector[-1]))
+#     except:
+#         print('error in angle calculation')
+#         hip_vector.append(None)
+#         shin_vector.append(None)
+#         knee_angle.append(None)
+#
+# df['hip vector'] = pd.Series(hip_vector)
+# df['knee vector'] = pd.Series(shin_vector)
+# df['knee angle'] = pd.Series(knee_angle)
 
 exists = os.path.isfile(OUTPUT_CSV)
 if exists:

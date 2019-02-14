@@ -1,6 +1,6 @@
 from tkinter import *
 import cv2
-import OpenPoseVideo
+# import OpenPoseVideo
 
 OUTPUT = './destination/'
 MODE = 'BODY25'

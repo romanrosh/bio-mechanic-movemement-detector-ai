@@ -27,7 +27,7 @@ elif MODE is "BODY25":
                   [10, 11], [8, 12], [12, 13], [13, 14], [1, 0], [0, 15], [0, 16], [16, 18], [2, 17], [5, 18], [14, 19],
                   [19, 20], [14, 21], [11, 22], [22, 23], [11, 24]]
 
-frame = cv2.imread("1.jpg")
+frame = cv2.imread("capture.jpg")
 frame = cv2.resize(frame, dsize=(1000, 800))
 frameCopy = np.copy(frame)
 frameWidth = frame.shape[1]
