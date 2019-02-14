@@ -164,7 +164,7 @@ vid_writer.release()
 
 ## add column names to the dataframe
 df.columns = BODY_25_COLUMNS
-
+df.fillna(value=pd.np.nan, inplace=True)
 exists = os.path.isfile(OUTPUT_CSV)
 if exists:
     with open(OUTPUT_CSV, 'a') as f:
