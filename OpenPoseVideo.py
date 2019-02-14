@@ -7,7 +7,7 @@ import os
 MODE = "BODY25"
 input_source = "The Back Squat.mp4"
 # The Air Squat.mp4
-output_destination = './destination/' + input_source.split('.')[0]+'.avi'
+output_destination = './destination/' + input_source.split('.')[0] + '.avi'
 OUTPUT_CSV = './destination/output.csv'
 FRAMES_TO_TAKE = 1
 
@@ -48,8 +48,6 @@ elif MODE is "BODY25":
                        "left heel x", "left heel y", "right foot x", "right foot y", "right toes x", "right toes y",
                        "right heel x", "right heel y"]
 
-
-
     inWidth = 368
 inHeight = 368
 threshold = 0.1
@@ -71,7 +69,7 @@ while cv2.waitKey(1) < 0:
     counter += 1
     if np.mod(counter, FRAMES_TO_TAKE) != 0:
         continue
-    print('frame',counter)
+    print('frame', counter)
     frameCopy = np.copy(frame)
     if not hasFrame:
         cv2.waitKey()
@@ -125,7 +123,7 @@ while cv2.waitKey(1) < 0:
         df_is_empty = False
     else:
         df = df.append(flat_array, ignore_index=True)
-    print('dataframe size',len(df))
+    print('dataframe size', len(df))
     # Draw Skeleton
     for pair in POSE_PAIRS:
         partA = pair[0]

@@ -42,16 +42,16 @@ def dir_to_body25(videos_dir, targets_dir, rotation = None):
 
         convertor.video_cut()
 
-        try:
-            if rotation:
-                print(rotation)
-                list_images = os.listdir(target_dir)
-                for image in list_images:
-                    image = os.path.join(target_dir, image)
-                    rotate_image(image, rotation)
-        except NotADirectoryError:
-            print('skipped: ' + str(video))
-            continue
+        # try:
+        #     if rotation:
+        #         print(rotation)
+        #         list_images = os.listdir(target_dir)
+        #         for image in list_images:
+        #             image = os.path.join(target_dir, image)
+        #             rotate_image(image, rotation)
+        # except NotADirectoryError:
+        #     print('skipped: ' + str(video))
+        #     continue
 
         try:
             array[i] = convertor.build_array()

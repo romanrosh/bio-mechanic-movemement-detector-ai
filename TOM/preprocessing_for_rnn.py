@@ -106,7 +106,7 @@ class VideoToBody25:
 
         return points
 
-    def build_array(self, n=25):
+    def build_array(self, n=15):
         """
 
         :return: numpy array with the first array representing the columns and the rest the coordinates for each frame
