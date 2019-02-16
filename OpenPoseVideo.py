@@ -3,6 +3,7 @@ import time
 import numpy as np
 import pandas as pd
 import os
+import math
 from angles import angle
 
 MODE = "BODY25"
@@ -165,6 +166,118 @@ vid_writer.release()
 df.columns = BODY_25_COLUMNS
 df.fillna(value=pd.np.nan, inplace=True)
 
+df2 = df.copy()
+df2.fillna(value=np.nan, inplace=True)
+
+## list NaNs tuples
+
+# display(df.apply(np.nanmean, axis=1))
+def nans_list(df):
+    import math
+    nans = []
+    for i in np.arange(df.shape[0]):
+        for j in np.arange(df.shape[1]):
+            if math.isnan(df.iloc[i,j]):
+                nans.append((i,j))
+    return nans
+
+nans = nans_list(df2)
+print(f"NaNs left to deal with: {len(nans)}")
+
+## for points not at the edge, if NaN take the mean around them
+
+persistent_nans = []
+for point in nans:
+    if point[0]>4 and point[0]<df2.shape[0]-5:
+        df2.iloc[point[0], point[1]] = np.nanmean(df2.iloc[point[0]-5:point[0]+6,point[1] ])
+
+print(f"NaNs left to deal with at the edges: {len(nans_list(df2))}")
+
+print(nans_list(df2))
+
+reverse_top = np.arange(0,15)[::-1]
+
+for row in reverse_top:
+    for col in np.arange(df2.shape[1]):
+        if math.isnan(df2.iloc[row, col]):
+            df2.iloc[row, col] = df2.iloc[row+1, col]
+
+
+for row in np.arange(df2.shape[0]-10, df2.shape[0]):
+    for col in np.arange(df2.shape[1]):
+        if math.isnan(df2.iloc[row, col]):
+            df2.iloc[row, col] = df2.iloc[row-1, col]
+
+print(f"NaNs left to deal with: {len(nans_list(df2))}")
+
+
+
+def anomaly_detector(arr):
+    array_mean = np.mean(arr)
+    array_std = np.std(arr)
+    mid_point = arr.iloc[int((arr.shape[0]+1)/2 - 1)]
+    if array_std>0 and np.abs(mid_point-array_mean)/array_std > 2:
+#         print('anomaly handled')
+        return array_mean, True
+    return mid_point, False
+
+
+iterations = 0
+found_anomalies = True
+while found_anomalies:
+    iterations += 1
+    found_anomalies = False
+    for row in np.arange(5,df2.shape[0]-5):
+        for col in np.arange(df2.shape[1]):
+            result = anomaly_detector(df2.iloc[row-5:row+6, col])
+            df2.iloc[row, col] = result[0]
+            if result[1]:
+                found_anomalies = True
+print(f"{iterations} iterations required")
+
+
+## anomalies on edges (top/bottom 5 rows)
+
+def edge_anomaly_detector(arr, val):
+    array_mean = np.mean(arr)
+    array_std = np.std(arr)
+    #     mid_point = arr.iloc[int((arr.shape[0]+1)/2 - 1)]
+    if array_std > 0 and np.abs(val - array_mean) / array_std > 2:
+        #         print('anomaly handled')
+        return array_mean, True
+    return val, False
+
+
+iterations = 0
+found_anomalies = True
+while found_anomalies:
+    iterations += 1
+    found_anomalies = False
+    for row in np.arange(5):
+        for col in np.arange(df2.shape[1]):
+            result = edge_anomaly_detector(df2.iloc[:5, col], df2.iloc[row, col])
+            df2.iloc[row, col] = result[0]
+            if result[1]:
+                found_anomalies = True
+    for row in np.arange(df2.shape[0]):
+        for col in np.arange(df2.shape[1]):
+            result = edge_anomaly_detector(df2.iloc[df2.shape[0]-5:, col], df2.iloc[row, col])
+            df2.iloc[row, col] = result[0]
+            if result[1]:
+                found_anomalies = True
+print(f"{iterations} iterations required")
+
+print(df2)
+OUTPUT_CSV2 = './destination/output_roee.csv'
+
+exists = os.path.isfile(OUTPUT_CSV2)
+
+if exists:
+    with open(OUTPUT_CSV2, 'a') as f:
+        df2.to_csv(f, header=False)
+else:
+    df2.to_csv(OUTPUT_CSV2)
+
 for i in range(len(df)):
     # RIGHT KNEE
     u = (df.loc[i, '9-XRHip'] - df.loc[i, '10-XRKnee'], df.loc[i, '9-YRHip'] - df.loc[i, '10-YRKnee'])
@@ -194,7 +307,6 @@ for i in range(len(df)):
     v = (heel_angle_x - df.loc[i, '10-XRKnee'], heel_angle_y - df.loc[i, '10-YRKnee'])
     c = np.dot(u, v) / np.linalg.norm(u) / np.linalg.norm(v)
     df.loc[i, 'RightHeelAngleAngle'] = np.arccos(np.clip(c, -1, 1)) * 180 / np.pi
-
     # hip neck knee
     knee_x = (df.loc[i, "10-XRKnee"] + df.loc[i, "13-XLKnee"]) / 2
     knee_y = (df.loc[i, "10-YRKnee"] + df.loc[i, "13-YLKnee"]) / 2
