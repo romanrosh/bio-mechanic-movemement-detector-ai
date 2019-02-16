@@ -145,6 +145,7 @@ def read_from_folder(path):
         cv2.waitKey(0)
     df.columns = BODY_25_COLUMNS
     df['Source-Image'] = file_list
+
     for i in range(len(df)):
         # RIGHT KNEE
         u = (df.loc[i, '9-XRHip'] - df.loc[i, '10-XRKnee'], df.loc[i, '9-YRHip'] - df.loc[i, '10-YRKnee'])
