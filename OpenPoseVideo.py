@@ -17,7 +17,7 @@ input_source = "The Air Squat.mp4"
 
 output_destination ='./destination/' + input_source.split('.')[0] + '.avi'
 OUTPUT_CSV = './destination/output.csv'
-FRAMES_TO_TAKE = 100
+FRAMES_TO_TAKE = 10
 
 if MODE is "COCO":
     protoFile = "C:/Users/romanrosh/openpose-1.4.0-win64-gpu-binaries/models/pose/coco/pose_deploy_linevec.prototxt"
@@ -171,12 +171,10 @@ if exists:
         df.to_csv(f, header=False)
 else:
     df.to_csv(OUTPUT_CSV)
-
+print(df)
 df=pd.read_csv(OUTPUT_CSV)
-# df.dropna(inplace=True)
-# print(df.iloc[20:40])
+
 for i in range(len(df)):
-    # try:
     u=(df.loc[i,'9-XRHip']-df.loc[i,'10-XRKnee'],df.loc[i,'9-YRHip']-df.loc[i,'10-YRKnee'])
     v=(df.loc[i,'11-XRAnkle']-df.loc[i,'10-XRKnee'],df.loc[i,'11-YRAnkle']-df.loc[i,'10-YRKnee'])
     c = np.dot(u, v) / np.linalg.norm(u) / np.linalg.norm(v)  # -> cosine of the angle

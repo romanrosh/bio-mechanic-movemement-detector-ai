@@ -21,8 +21,8 @@ elif MODE is "MPI":
                   [11, 12], [12, 13]]
 
 elif MODE is "BODY25":
-    protoFile = "C:/Users/romanrosh/openpose-1.4.0-win64-gpu-binaries/models/pose/coco/pose_deploy_linevec.prototxt"
-    weightsFile = "C:/Users/romanrosh/openpose-1.4.0-win64-gpu-binaries/models/pose/coco/pose_iter_440000.caffemodel"
+    protoFile = "C:/Users/romanrosh/openpose-1.4.0-win64-gpu-binaries/models/pose/body_25/pose_deploy.prototxt"
+    weightsFile = "C:/Users/romanrosh/openpose-1.4.0-win64-gpu-binaries/models/pose/body_25/pose_iter_584000.caffemodel"
     nPoints = 25
     POSE_PAIRS = [[1, 0], [1, 2], [1, 5], [2, 3], [3, 4], [5, 6], [6, 7], [1, 8], [8, 9], [9, 10], [1, 11], [11, 12],
                   [12, 13], [0, 14], [0, 15], [14, 16], [15, 17],
@@ -58,11 +58,12 @@ elif MODE is "BODY25":
 def read_from_folder(path):
     files = os.listdir(path)
     df_is_empty = True
-    for i,name in enumerate(files):
+    # df.loc[j, 'Source-Image'] = path.split('/')[-2] + '/' + name
+    file_list = [path.split('/')[-3] + '/' + path.split('/')[-2] + '/' + file for file in files]
+    for j,name in enumerate(files):
         print(name)
         frame = cv2.imread(path+name)
-        print(frame.shape)
-        frame = cv2.resize(frame, dsize=(1000, 800))
+        frame = cv2.resize(frame, dsize=(800, 600))
         frameCopy = np.copy(frame)
         frameWidth = frame.shape[1]
         frameHeight = frame.shape[0]
@@ -80,7 +81,7 @@ def read_from_folder(path):
         net.setInput(inpBlob)
 
         output = net.forward()
-        print("time taken by network : {:.3f}".format(time.time() - t))
+        # print("time taken by network : {:.3f}".format(time.time() - t))
 
         H = output.shape[2]
         W = output.shape[3]
@@ -120,32 +121,70 @@ def read_from_folder(path):
             point_dict = {i: flat_array[i] for i in np.arange(len(flat_array))}
 
         flat_array = pd.Series(np.array(flat_array))
-        print(len(flat_array))
         if df_is_empty:
             df = pd.DataFrame([flat_array])
             df_is_empty = False
         else:
-            df = df.append(flat_array, ignore_index=True)
-        # print(df)
-        # Draw Skeleton
+            df = df.append([flat_array], ignore_index=True)
+        # df.columns = BODY_25_COLUMNS
         for pair in POSE_PAIRS:
             partA = pair[0]
             partB = pair[1]
 
             if points[partA] and points[partB]:
                 cv2.line(frame, points[partA], points[partB], (0, 255, 255), 2)
-                cv2.circle(frame, points[partA], 8, (0, 0, 255), thickness=-1, lineType=cv2.FILLED)
+                cv2.circle(frame, points[partA], 8, (0, 0, 255))
 
-        # cv2.imshow('Output-Keypoints', frameCopy)
-        # cv2.imshow('Output-Skeleton', frame)
+        cv2.imshow('Output-Keypoints', frameCopy)
+        cv2.imshow('Output-Skeleton', frame)
 
         # cv2.imwrite('./destination/'+name+frameCopy, path+name+frameCopy)
         # cv2.imwrite('./destination/'+path+name+frame, path+name+frame)
 
-        print("Total time taken : {:.3f}".format(time.time() - t))
+        # print("Total time taken : {:.3f}".format(time.time() - t))
         cv2.waitKey(0)
     df.columns = BODY_25_COLUMNS
-    exists = os.path.isfile(OUTPUT_CSV)
+    df['Source-Image'] = file_list
+    for i in range(len(df)):
+        # RIGHT KNEE
+        u = (df.loc[i, '9-XRHip'] - df.loc[i, '10-XRKnee'], df.loc[i, '9-YRHip'] - df.loc[i, '10-YRKnee'])
+        v = (df.loc[i, '11-XRAnkle'] - df.loc[i, '10-XRKnee'], df.loc[i, '11-YRAnkle'] - df.loc[i, '10-YRKnee'])
+        c = np.dot(u, v) / np.linalg.norm(u) / np.linalg.norm(v)
+        df.loc[i,'RightKneeAngle'] = np.arccos(np.clip(c, -1, 1))*180/np.pi
+        # LEFT KNEE
+        u = (df.loc[i, '12-XLHip'] - df.loc[i, '13-XLKnee'], df.loc[i, '12-YLHip'] - df.loc[i, '13-YLKnee'])
+        v = (df.loc[i, '14-XLAnkle'] - df.loc[i, '13-XLKnee'], df.loc[i, '14-YLAnkle'] - df.loc[i, '13-YLKnee'])
+        c = np.dot(u, v) / np.linalg.norm(u) / np.linalg.norm(v)
+        df.loc[i,'LeftKneeAngle'] = np.arccos(np.clip(c, -1, 1))*180/np.pi
+        # heel ankle toe knee left side
+        toes_x = (df.loc[i, "19-XLBigToe"] + df.loc[i, "20-XLSmallToe"]) / 2
+        toes_y = (df.loc[i, "19-YLBigToe"] + df.loc[i, "20-YLSmallToe"]) / 2
+        heel_angle_x = (df.loc[i, "21-XLHeel"] + df.loc[i, "14-XLAnkle"]) / 2
+        heel_angle_y = (df.loc[i, "21-YLHeel"] + df.loc[i, "14-XLAnkle"]) / 2
+        u = (toes_x - heel_angle_x, toes_y - heel_angle_y)
+        v = (heel_angle_x - df.loc[i, '13-XLKnee'], heel_angle_y - df.loc[i, '13-YLKnee'])
+        c = np.dot(u, v) / np.linalg.norm(u) / np.linalg.norm(v)
+        df.loc[i,'LeftHeelAngleAngle'] = np.arccos(np.clip(c, -1, 1))*180/np.pi
+        # heel ankle toe knee right side
+        toes_x = (df.loc[i, "22-XRBigToe"] + df.loc[i, "23-XRSmallToe"]) / 2
+        toes_y = (df.loc[i, "22-YRBigToe"] + df.loc[i, "23-YRSmallToe"]) / 2
+        heel_angle_x = (df.loc[i, "24-XRHeel"] + df.loc[i, "11-XRAnkle"]) / 2
+        heel_angle_y = (df.loc[i, "24-YRHeel"] + df.loc[i, "11-YRAnkle"]) / 2
+        u = (toes_x - heel_angle_x, toes_y - heel_angle_y)
+        v = (heel_angle_x - df.loc[i, '10-XRKnee'], heel_angle_y - df.loc[i, '10-YRKnee'])
+        c = np.dot(u, v) / np.linalg.norm(u) / np.linalg.norm(v)
+        df.loc[i,'RightHeelAngleAngle'] = np.arccos(np.clip(c, -1, 1))*180/np.pi
+
+        # hip neck knee
+        knee_x = (df.loc[i, "10-XRKnee"] + df.loc[i, "13-XLKnee"]) / 2
+        knee_y = (df.loc[i, "10-YRKnee"] + df.loc[i, "13-YLKnee"]) / 2
+        u = (knee_x - df.loc[i, '8-XMidHip'], knee_y - df.loc[i, '8-YMidHip'])
+        v = (df.loc[i, '1-XNeck'] - df.loc[i, '8-XMidHip'], df.loc[i, '1-YNeck'] - df.loc[i, '8-YMidHip'])
+        c = np.dot(u, v) / np.linalg.norm(u) / np.linalg.norm(v)
+        df.loc[i,'HipAngle'] = np.arccos(np.clip(c, -1, 1))*180/np.pi
+
+    exists = os.path.isfile('./destination/'+OUTPUT_CSV)
+
     if exists:
         with open('./destination/'+OUTPUT_CSV, 'a') as f:
             df.to_csv(f, header=False)
@@ -153,10 +192,15 @@ def read_from_folder(path):
         df.to_csv('./destination/'+OUTPUT_CSV)
     return df
 
-folders=['C:/Users/romanrosh/photos/front/right_bottom/',
+folders = ['C:/Users/romanrosh/photos/front/right_bottom/',
         'C:/Users/romanrosh/photos/front/right_top/',
         'C:/Users/romanrosh/photos/side/right_bottom/',
         'C:/Users/romanrosh/photos/side/right_top/']
+
+# folders = ['C:/Users/romanrosh/photos/front/right_bottom/',
+#         'C:/Users/romanrosh/photos/front/right_top/']
+
+folders = ['C:/Users/romanrosh/photos/test/']
 
 for folder in folders:
     read_from_folder(folder)
