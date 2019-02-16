@@ -7,6 +7,7 @@ TRUTH = 1
 VIDEO_DIR = os.path.join(CURRENT_DIR, './videos_long/' + str(TRUTH) + '/', )
 TARGET_DIR = os.path.join(CURRENT_DIR, './videos_frames_long/' + str(TRUTH) + '/')
 TARGET_CSV = os.path.join(CURRENT_DIR, './csv/')
+ANCHOR = "0-YNose"
 
 BODY_25_COLUMNS = ["0-XNose", "0-YNose",
                    "1-XNeck", "1-YNeck",
@@ -34,8 +35,18 @@ BODY_25_COLUMNS = ["0-XNose", "0-YNose",
                    "23-XRSmallToe", "23-YRSmallToe",
                    "24-XRHeel", "24-YRHeel"]
 
-
-
+MODELLING_COLUMNS = ["0-XNose", "0-YNose",
+                     "1-XNeck", "1-YNeck",
+                     "2-XRShoulder", "2-YRShoulder",
+                     "5-XLShoulder", "5-YLShoulder",
+                     "8-XMidHip", "8-YMidHip",
+                     "9-XRHip", "9-YRHip",
+                     "10-XRKnee", "10-YRKnee",
+                     "11-XRAnkle", "11-YRAnkle",
+                     "13-XLKnee", "13-YLKnee",
+                     "14-XLA nkle", "14-YLAnkle",
+                     "19-XLBigToe", "19-YLBigToe",
+                     "22-XRBigToe", "22-YRBigToe"]
 
 
 def dir_to_body25(videos_dir, targets_dir):
@@ -84,27 +95,29 @@ def split_preprocess(df, anchor, columns, n=2):
     :param n: number to average by
     :return: dataframe with a different period column
     """
-    df.columns = df.columns[1:].insert(0, 'period')
+    df = df[columns]
+    df.insert(0, 'period', 0)
     df = df[df[anchor] != 0]
     df.reset_index(drop=True, inplace=True)
     period = 0
     for i, value in enumerate(df[anchor]):
         pre_mean = df.loc[i - n:i, anchor].mean()
         post_mean = df.loc[i + 1:i + n + 1, anchor].mean()
-        df.iloc[i, 0] = period
+        df.loc[i, 'period'] = period
         period += 1
         if value < pre_mean and value < post_mean:
             period = 0
 
-    return df[columns.append('period')]
+    return df
 
+# def df_to_np(df):
 
 
 if __name__ == '__main__':
     # video_to_img(os.path.join(CURRENT_DIR, TEST_FILE), os.path.join(CURRENT_DIR, TARGET_DIR))
-    if not os.path.exists(TARGET_CSV + str(TRUTH)):
-        os.makedirs(TARGET_CSV + str(TRUTH))
+    if not os.path.exists(TARGET_CSV):
+        os.makedirs(TARGET_CSV)
 
     df = dir_to_body25(VIDEO_DIR, TARGET_DIR)
-    df = split_preprocess(df, '')
-    df.to_csv(str(TRUTH) + '.csv')
+    df = split_preprocess(df, ANCHOR, MODELLING_COLUMNS)
+    df.to_csv(TARGET_CSV + str(TRUTH) + '.csv')

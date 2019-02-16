@@ -6,7 +6,7 @@ import math
 import pandas as pd
 
 
-DIM = 51
+DIM = 50
 logging.basicConfig(level=logging.INFO)
 protoFile = "/Users/tomcohen/Documents/ITC/project_2/openpose-master/models/pose/body_25/pose_deploy.prototxt"
 weightsFile = "/Users/tomcohen/Documents/ITC/project_2/openpose-master/models/pose/body_25/pose_iter_584000.caffemodel"
