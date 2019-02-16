@@ -148,9 +148,9 @@ while cv2.waitKey(1) < 0:
         partB = pair[1]
 
         if points[partA] and points[partB]:
-            cv2.line(frame, points[partA], points[partB], (0, 255, 255), 3, lineType=cv2.LINE_AA)
-            cv2.circle(frame, points[partA], 8, (0, 0, 255), thickness=-1, lineType=cv2.FILLED)
-            cv2.circle(frame, points[partB], 8, (0, 0, 255), thickness=-1, lineType=cv2.FILLED)
+            cv2.line(frame, points[partA], points[partB], (0, 255, 255), 3)
+            cv2.circle(frame, points[partA], 8, (0, 0, 255))
+            cv2.circle(frame, points[partB], 8, (0, 0, 255))
         # print(points)
     # cv2.putText(frame, "time taken = {:.2f} sec".format(time.time() - t), (50, 50), cv2.FONT_HERSHEY_COMPLEX, .8,
     #             (255, 50, 0), 2, lineType=cv2.LINE_AA)
@@ -162,20 +162,51 @@ while cv2.waitKey(1) < 0:
         break
 vid_writer.release()
 
-## add column names to the dataframe
 df.columns = BODY_25_COLUMNS
 df.fillna(value=pd.np.nan, inplace=True)
+
+for i in range(len(df)):
+    # RIGHT KNEE
+    u = (df.loc[i, '9-XRHip'] - df.loc[i, '10-XRKnee'], df.loc[i, '9-YRHip'] - df.loc[i, '10-YRKnee'])
+    v = (df.loc[i, '11-XRAnkle'] - df.loc[i, '10-XRKnee'], df.loc[i, '11-YRAnkle'] - df.loc[i, '10-YRKnee'])
+    c = np.dot(u, v) / np.linalg.norm(u) / np.linalg.norm(v)
+    df.loc[i, 'RightKneeAngle'] = np.arccos(np.clip(c, -1, 1)) * 180 / np.pi
+    # LEFT KNEE
+    u = (df.loc[i, '12-XLHip'] - df.loc[i, '13-XLKnee'], df.loc[i, '12-YLHip'] - df.loc[i, '13-YLKnee'])
+    v = (df.loc[i, '14-XLAnkle'] - df.loc[i, '13-XLKnee'], df.loc[i, '14-YLAnkle'] - df.loc[i, '13-YLKnee'])
+    c = np.dot(u, v) / np.linalg.norm(u) / np.linalg.norm(v)
+    df.loc[i, 'LeftKneeAngle'] = np.arccos(np.clip(c, -1, 1)) * 180 / np.pi
+    # heel ankle toe knee left side
+    toes_x = (df.loc[i, "19-XLBigToe"] + df.loc[i, "20-XLSmallToe"]) / 2
+    toes_y = (df.loc[i, "19-YLBigToe"] + df.loc[i, "20-YLSmallToe"]) / 2
+    heel_angle_x = (df.loc[i, "21-XLHeel"] + df.loc[i, "14-XLAnkle"]) / 2
+    heel_angle_y = (df.loc[i, "21-YLHeel"] + df.loc[i, "14-XLAnkle"]) / 2
+    u = (toes_x - heel_angle_x, toes_y - heel_angle_y)
+    v = (heel_angle_x - df.loc[i, '13-XLKnee'], heel_angle_y - df.loc[i, '13-YLKnee'])
+    c = np.dot(u, v) / np.linalg.norm(u) / np.linalg.norm(v)
+    df.loc[i, 'LeftHeelAngleAngle'] = np.arccos(np.clip(c, -1, 1)) * 180 / np.pi
+    # heel ankle toe knee right side
+    toes_x = (df.loc[i, "22-XRBigToe"] + df.loc[i, "23-XRSmallToe"]) / 2
+    toes_y = (df.loc[i, "22-YRBigToe"] + df.loc[i, "23-YRSmallToe"]) / 2
+    heel_angle_x = (df.loc[i, "24-XRHeel"] + df.loc[i, "11-XRAnkle"]) / 2
+    heel_angle_y = (df.loc[i, "24-YRHeel"] + df.loc[i, "11-YRAnkle"]) / 2
+    u = (toes_x - heel_angle_x, toes_y - heel_angle_y)
+    v = (heel_angle_x - df.loc[i, '10-XRKnee'], heel_angle_y - df.loc[i, '10-YRKnee'])
+    c = np.dot(u, v) / np.linalg.norm(u) / np.linalg.norm(v)
+    df.loc[i, 'RightHeelAngleAngle'] = np.arccos(np.clip(c, -1, 1)) * 180 / np.pi
+
+    # hip neck knee
+    knee_x = (df.loc[i, "10-XRKnee"] + df.loc[i, "13-XLKnee"]) / 2
+    knee_y = (df.loc[i, "10-YRKnee"] + df.loc[i, "13-YLKnee"]) / 2
+    u = (knee_x - df.loc[i, '8-XMidHip'], knee_y - df.loc[i, '8-YMidHip'])
+    v = (df.loc[i, '1-XNeck'] - df.loc[i, '8-XMidHip'], df.loc[i, '1-YNeck'] - df.loc[i, '8-YMidHip'])
+    c = np.dot(u, v) / np.linalg.norm(u) / np.linalg.norm(v)
+    df.loc[i, 'HipAngle'] = np.arccos(np.clip(c, -1, 1)) * 180 / np.pi
+
 exists = os.path.isfile(OUTPUT_CSV)
+
 if exists:
     with open(OUTPUT_CSV, 'a') as f:
         df.to_csv(f, header=False)
 else:
     df.to_csv(OUTPUT_CSV)
-print(df)
-df=pd.read_csv(OUTPUT_CSV)
-
-for i in range(len(df)):
-    u=(df.loc[i,'9-XRHip']-df.loc[i,'10-XRKnee'],df.loc[i,'9-YRHip']-df.loc[i,'10-YRKnee'])
-    v=(df.loc[i,'11-XRAnkle']-df.loc[i,'10-XRKnee'],df.loc[i,'11-YRAnkle']-df.loc[i,'10-YRKnee'])
-    c = np.dot(u, v) / np.linalg.norm(u) / np.linalg.norm(v)  # -> cosine of the angle
-    print('angle is',i,np.arccos(np.clip(c, -1, 1))*180/np.pi)

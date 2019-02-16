@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="53758124-a276-4243-848a-351562495724" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenPoseImageFromFolder.py" beforeDir="false" afterPath="$PROJECT_DIR$/OpenPoseImageFromFolder.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OpenPoseVideo.py" beforeDir="false" afterPath="$PROJECT_DIR$/OpenPoseVideo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anomalies.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/anomalies.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/OpenPoseVideo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+            <state relative-caret-position="205">
+              <caret line="208" column="36" selection-start-line="208" selection-start-column="36" selection-end-line="208" selection-end-column="36" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -32,11 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OpenPoseImageFromFolder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="133" column="47" lean-forward="true" selection-start-line="133" selection-start-column="47" selection-end-line="133" selection-end-column="47" />
+            <state relative-caret-position="2713">
+              <caret line="184" selection-start-line="183" selection-start-column="69" selection-end-line="184" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
                 <marker date="1550279347159" expanded="true" signature="5992:6041" ph="..." />
@@ -49,7 +49,7 @@
         <entry file="file://$PROJECT_DIR$/OpenPoseImage.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="125">
-              <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
+              <caret line="94" selection-start-line="94" selection-end-line="94" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -120,8 +120,9 @@
         <option value="$PROJECT_DIR$/angles.py" />
         <option value="$PROJECT_DIR$/OpenPoseImage.py" />
         <option value="$PROJECT_DIR$/webcam_app.py" />
-        <option value="$PROJECT_DIR$/OpenPoseVideo.py" />
         <option value="$PROJECT_DIR$/OpenPoseImageFromFolder.py" />
+        <option value="$PROJECT_DIR$/anomalies.ipynb" />
+        <option value="$PROJECT_DIR$/OpenPoseVideo.py" />
       </list>
     </option>
   </component>
@@ -178,7 +179,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.OpenPoseImageFromFolder">
+  <component name="RunManager" selected="Python.OpenPoseVideo">
     <configuration name="OpenPoseImage" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bio-mechanic-movmement-detector-ai" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -290,8 +291,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.OpenPoseImageFromFolder" />
         <item itemvalue="Python.OpenPoseVideo" />
+        <item itemvalue="Python.OpenPoseImageFromFolder" />
         <item itemvalue="Python.webcam_app (1)" />
         <item itemvalue="Python.webcam_app" />
         <item itemvalue="Python.OpenPoseImage" />
@@ -390,7 +391,14 @@
       <option name="project" value="LOCAL" />
       <updated>1550162512612</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Small changes">
+      <created>1550279802091</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1550279802091</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -406,15 +414,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="762" y="0" width="781" height="830" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.37768817" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18572372" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37106016" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36685553" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -486,7 +494,8 @@
     <MESSAGE value="Adding Body25" />
     <MESSAGE value="creating dataframe and saving it using numpy object" />
     <MESSAGE value="Addition of columns names" />
-    <option name="LAST_COMMIT_MESSAGE" value="Addition of columns names" />
+    <MESSAGE value="Small changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small changes" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/647096018/posix.py" />
@@ -691,7 +700,7 @@
     <entry file="file://$PROJECT_DIR$/OpenPoseImage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
-          <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
+          <caret line="94" selection-start-line="94" selection-end-line="94" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
@@ -705,26 +714,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OpenPoseVideo.py">
+    <entry file="file://$PROJECT_DIR$/keypoints_pose_25.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/anomalies.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OpenPoseImageFromFolder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+        <state relative-caret-position="2713">
+          <caret line="184" selection-start-line="183" selection-start-column="69" selection-end-line="184" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
+            <marker date="1550279347159" expanded="true" signature="5992:6041" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/keypoints_pose_25.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OpenPoseImageFromFolder.py">
+    <entry file="file://$PROJECT_DIR$/OpenPoseVideo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="133" column="47" lean-forward="true" selection-start-line="133" selection-start-column="47" selection-end-line="133" selection-end-column="47" />
+        <state relative-caret-position="205">
+          <caret line="208" column="36" selection-start-line="208" selection-start-column="36" selection-end-line="208" selection-end-column="36" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <marker date="1550279347159" expanded="true" signature="5992:6041" ph="..." />
           </folding>
         </state>
       </provider>
