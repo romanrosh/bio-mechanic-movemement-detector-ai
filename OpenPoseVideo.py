@@ -216,7 +216,7 @@ def anomaly_detector(arr):
     array_mean = np.mean(arr)
     array_std = np.std(arr)
     mid_point = arr.iloc[int((arr.shape[0]+1)/2 - 1)]
-    if np.abs(mid_point-array_mean)/array_std > 2:
+    if array_std>0 and np.abs(mid_point-array_mean)/array_std > 2:
 #         print('anomaly handled')
         return array_mean, True
     return mid_point, False
@@ -242,7 +242,7 @@ def edge_anomaly_detector(arr, val):
     array_mean = np.mean(arr)
     array_std = np.std(arr)
     #     mid_point = arr.iloc[int((arr.shape[0]+1)/2 - 1)]
-    if np.abs(val - array_mean) / array_std > 2:
+    if array_std > 0 and np.abs(val - array_mean) / array_std > 2:
         #         print('anomaly handled')
         return array_mean, True
     return val, False
