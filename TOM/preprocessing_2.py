@@ -1,12 +1,12 @@
-from preprocessing_for_rnn import *
 from PIL import Image
 import pandas as pd
+from preprocessing_1 import *
 
 CURRENT_DIR = os.getcwd()
-VIDEO_DIR = os.path.join(CURRENT_DIR, './videos/')
-TARGET_DIR = os.path.join(CURRENT_DIR, './videos_frames/')
-TARGET_CSV = os.path.join(CURRENT_DIR, './csv/')
 TRUTH = 1
+VIDEO_DIR = os.path.join(CURRENT_DIR, './videos_long/' + str(TRUTH) + '/', )
+TARGET_DIR = os.path.join(CURRENT_DIR, './videos_frames_long/' + str(TRUTH) + '/')
+TARGET_CSV = os.path.join(CURRENT_DIR, './csv/')
 
 BODY_25_COLUMNS = ["0-XNose", "0-YNose",
                    "1-XNeck", "1-YNeck",
@@ -22,7 +22,7 @@ BODY_25_COLUMNS = ["0-XNose", "0-YNose",
                    "11-XRAnkle", "11-YRAnkle",
                    "12-XLHip", "12-YLHip",
                    "13-XLKnee", "13-YLKnee",
-                   "14-XLAnkle", "14-YLAnkle",
+                   "14-XLA nkle", "14-YLAnkle",
                    "15-XREye", "15-YREye",
                    "16-XLEye", "16-YLEye",
                    "17-XREar", "17-YREar",
@@ -32,10 +32,13 @@ BODY_25_COLUMNS = ["0-XNose", "0-YNose",
                    "21-XLHeel", "21-YLHeel",
                    "22-XRBigToe", "22-YRBigToe",
                    "23-XRSmallToe", "23-YRSmallToe",
-                   "24-XRHeel", "24-YRHeel", 'y']
+                   "24-XRHeel", "24-YRHeel"]
 
 
-def dir_to_body25(videos_dir, targets_dir, truth, rotation=None):
+
+
+
+def dir_to_body25(videos_dir, targets_dir):
     """convert all video from a directory into folder of frames and return a numpy array of all the body_25 coordinates
      of all the videos"""
     if not os.path.exists(videos_dir):
@@ -57,20 +60,9 @@ def dir_to_body25(videos_dir, targets_dir, truth, rotation=None):
 
         video_dir = videos_dir + video
         target_dir = targets_dir + video
-        convertor = VideoToBody25(video_dir, target_dir, truth)
+        convertor = VideoToBody25(video_dir, target_dir)
 
         convertor.video_cut()
-
-        # try:
-        #     if rotation:
-        #         print(rotation)
-        #         list_images = os.listdir(target_dir)
-        #         for image in list_images:
-        #             image = os.path.join(target_dir, image)
-        #             rotate_image(image, rotation)
-        # except NotADirectoryError:
-        #     print('skipped: ' + str(video))
-        #     continue
 
         try:
             array = pd.DataFrame(convertor.build_array())
@@ -84,8 +76,35 @@ def dir_to_body25(videos_dir, targets_dir, truth, rotation=None):
     return df
 
 
+def split_preprocess(df, anchor, columns, n=2):
+    """
+    :param df: dataframe to split
+    :param anchor: column to split by, string
+    :param columns: list of columns to keep
+    :param n: number to average by
+    :return: dataframe with a different period column
+    """
+    df.columns = df.columns[1:].insert(0, 'period')
+    df = df[df[anchor] != 0]
+    df.reset_index(drop=True, inplace=True)
+    period = 0
+    for i, value in enumerate(df[anchor]):
+        pre_mean = df.loc[i - n:i, anchor].mean()
+        post_mean = df.loc[i + 1:i + n + 1, anchor].mean()
+        df.iloc[i, 0] = period
+        period += 1
+        if value < pre_mean and value < post_mean:
+            period = 0
+
+    return df[columns.append('period')]
+
+
+
 if __name__ == '__main__':
     # video_to_img(os.path.join(CURRENT_DIR, TEST_FILE), os.path.join(CURRENT_DIR, TARGET_DIR))
+    if not os.path.exists(TARGET_CSV + str(TRUTH)):
+        os.makedirs(TARGET_CSV + str(TRUTH))
 
-    df = dir_to_body25(VIDEO_DIR, TARGET_DIR, TRUTH, rotation=270)
+    df = dir_to_body25(VIDEO_DIR, TARGET_DIR)
+    df = split_preprocess(df, '')
     df.to_csv(str(TRUTH) + '.csv')

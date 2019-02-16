@@ -3,6 +3,8 @@ import os
 import numpy as np
 import logging
 import math
+import pandas as pd
+
 
 DIM = 51
 logging.basicConfig(level=logging.INFO)
@@ -13,10 +15,9 @@ weightsFile = "/Users/tomcohen/Documents/ITC/project_2/openpose-master/models/po
 class VideoToBody25:
     """object that will receive a path of a video and will eventually return a dataframe"""
 
-    def __init__(self, video_path, img_destination, truth):
+    def __init__(self, video_path, img_destination):
         self.video_path = video_path
         self.img_destination = img_destination
-        self.truth = truth
 
     def video_cut(self):
         """
@@ -52,6 +53,7 @@ class VideoToBody25:
                 gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
                 gray = cv2.resize(gray, dsize=(400, 400))
                 # writing the extracted images
+                gray = cv2.rotate(gray, rotateCode=0)
                 cv2.imwrite(name, gray)
 
                 # increasing counter so that it will
@@ -106,10 +108,9 @@ class VideoToBody25:
                 points.append(None)
                 points.append(None)
 
-        points.append(self.truth)
         return points
 
-    def build_array(self, n=25):
+    def build_array(self, n=5):
         """
 
         :return: numpy array with the first array representing the columns and the rest the coordinates for each frame
@@ -119,10 +120,14 @@ class VideoToBody25:
 
         file_list = sorted(os.listdir(self.img_destination), key=lambda file: int(file.split('.')[0]))
         c = math.ceil(len(file_list) / n)
-        array = np.zeros((n, DIM), dtype=object)
-        for i, image_name in enumerate(file_list[::c]):
+        array = np.zeros((c, DIM), dtype=object)
+        for i, image_name in enumerate(file_list[::n]):
             image_path = os.path.join(self.img_destination, image_name)
             frame_coord = self.trace_skeleton(image_path)
             array[i] = frame_coord
             logging.info('traced: {}'.format(image_name))
         return array
+
+
+
+
