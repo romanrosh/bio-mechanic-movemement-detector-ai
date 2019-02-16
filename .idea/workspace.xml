@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53758124-a276-4243-848a-351562495724" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/bio-mechanic-movmement-detector-ai.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bio-mechanic-movmement-detector-ai.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OpenPoseImageFromFolder.py" beforeDir="false" afterPath="$PROJECT_DIR$/OpenPoseImageFromFolder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenPoseVideo.py" beforeDir="false" afterPath="$PROJECT_DIR$/OpenPoseVideo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/anomalies.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/anomalies.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,7 +19,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OpenPoseVideo.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="199">
@@ -35,23 +31,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/anomalies.ipynb">
-          <provider selected="true" editor-type-id="ipnb-editor">
-            <state>
-              <selected id="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/OpenPoseImageFromFolder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="147" selection-start-line="147" selection-end-line="147" />
+            <state relative-caret-position="105">
+              <caret line="129" column="31" lean-forward="true" selection-start-line="129" selection-start-column="31" selection-end-line="129" selection-end-column="31" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
-                <marker date="1550317813422" expanded="true" signature="5992:6041" ph="..." />
+                <marker date="1550323911390" expanded="true" signature="5994:6045" ph="..." />
               </folding>
             </state>
           </provider>
@@ -135,8 +122,8 @@
         <option value="$PROJECT_DIR$/OpenPoseImage.py" />
         <option value="$PROJECT_DIR$/webcam_app.py" />
         <option value="$PROJECT_DIR$/anomalies.ipynb" />
-        <option value="$PROJECT_DIR$/OpenPoseImageFromFolder.py" />
         <option value="$PROJECT_DIR$/OpenPoseVideo.py" />
+        <option value="$PROJECT_DIR$/OpenPoseImageFromFolder.py" />
       </list>
     </option>
   </component>
@@ -194,7 +181,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.OpenPoseVideo">
+  <component name="RunManager" selected="Python.OpenPoseImageFromFolder">
     <configuration name="OpenPoseImage" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bio-mechanic-movmement-detector-ai" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -306,8 +293,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.OpenPoseVideo" />
         <item itemvalue="Python.OpenPoseImageFromFolder" />
+        <item itemvalue="Python.OpenPoseVideo" />
         <item itemvalue="Python.webcam_app (1)" />
         <item itemvalue="Python.webcam_app" />
         <item itemvalue="Python.OpenPoseImage" />
@@ -420,7 +407,14 @@
       <option name="project" value="LOCAL" />
       <updated>1550280912757</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Addition of angles calculation">
+      <created>1550323388645</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1550323388646</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -734,21 +728,10 @@
     <entry file="file://$PROJECT_DIR$/keypoints_pose_25.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/OpenPoseImageFromFolder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="147" selection-start-line="147" selection-end-line="147" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-            <marker date="1550317813422" expanded="true" signature="5992:6041" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/anomalies.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
-          <selected id="19" />
+          <selected id="18" />
         </state>
       </provider>
     </entry>
@@ -758,6 +741,17 @@
           <caret line="249" lean-forward="true" selection-start-line="249" selection-end-line="249" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OpenPoseImageFromFolder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="129" column="31" lean-forward="true" selection-start-line="129" selection-start-column="31" selection-end-line="129" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+            <marker date="1550323911390" expanded="true" signature="5994:6045" ph="..." />
           </folding>
         </state>
       </provider>

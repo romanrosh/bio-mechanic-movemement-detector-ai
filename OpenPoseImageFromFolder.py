@@ -135,8 +135,8 @@ def read_from_folder(path):
                 cv2.line(frame, points[partA], points[partB], (0, 255, 255), 2)
                 cv2.circle(frame, points[partA], 8, (0, 0, 255))
 
-        cv2.imshow('Output-Keypoints', frameCopy)
-        cv2.imshow('Output-Skeleton', frame)
+        # cv2.imshow('Output-Keypoints', frameCopy)
+        # cv2.imshow('Output-Skeleton', frame)
 
         # cv2.imwrite('./destination/'+name+frameCopy, path+name+frameCopy)
         # cv2.imwrite('./destination/'+path+name+frame, path+name+frame)
@@ -201,7 +201,7 @@ folders = ['C:/Users/romanrosh/photos/front/right_bottom/',
 # folders = ['C:/Users/romanrosh/photos/front/right_bottom/',
 #         'C:/Users/romanrosh/photos/front/right_top/']
 
-folders = ['C:/Users/romanrosh/photos/test/']
+# folders = ['C:/Users/romanrosh/photos/test/']
 
 for folder in folders:
     read_from_folder(folder)
