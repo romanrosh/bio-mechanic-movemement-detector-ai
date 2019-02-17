@@ -18,7 +18,7 @@ input_source = "The Air Squat.mp4"
 
 output_destination ='./destination/' + input_source.split('.')[0] + '.avi'
 OUTPUT_CSV = './destination/output.csv'
-FRAMES_TO_TAKE = 10
+FRAMES_TO_TAKE = 15
 
 if MODE is "COCO":
     protoFile = "C:/Users/romanrosh/openpose-1.4.0-win64-gpu-binaries/models/pose/coco/pose_deploy_linevec.prototxt"
@@ -89,6 +89,8 @@ while cv2.waitKey(1) < 0:
     if np.mod(counter, FRAMES_TO_TAKE) != 0:
         continue
     print('frame', counter)
+    if counter == 1000:
+        break
     frameCopy = np.copy(frame)
     if not hasFrame:
         cv2.waitKey()
@@ -268,7 +270,7 @@ while found_anomalies:
 print(f"{iterations} iterations required")
 
 print(df2)
-OUTPUT_CSV2 = './destination/output_roee.csv'
+OUTPUT_CSV2 = './destination/output_anomalies.csv'
 
 exists = os.path.isfile(OUTPUT_CSV2)
 
