@@ -17,7 +17,7 @@ inHeight = 368
 def draw_sticks(path):
     df=pd.read_csv(path)
     df.drop(['Unnamed: 0'],axis=1,inplace=True)
-    df.dropna(inplace=True,axis=0)
+    # df.dropna(inplace=True,axis=0)
     print(df)
     # vid_writer = cv2.VideoWriter('out.avi', cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), 10, (frame.shape[1], frame.shape[0]))
     for j in range(len(df)):
@@ -46,5 +46,5 @@ def draw_sticks(path):
         # vid_writer.write(frame)
         cv2.waitKey(0)
 
-draw_sticks(path='C:/Users/romanrosh/PycharmProjects/bio-mechanic-movmement-detector-ai/destination/output.csv')
+draw_sticks(path='C:/Users/romanrosh/PycharmProjects/bio-mechanic-movmement-detector-ai/destination/All_top_bottom_correct_movements.csv')
 # draw_sticks(path='C:/Users/romanrosh/PycharmProjects/bio-mechanic-movmement-detector-ai/destination/all labeled.csv')
