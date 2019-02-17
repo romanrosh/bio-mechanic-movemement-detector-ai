@@ -1,12 +1,13 @@
 from PIL import Image
 import pandas as pd
 from preprocessing_1 import *
+from scipy.signal import find_peaks
 
 CURRENT_DIR = os.getcwd()
 TRUTH = 1
-VIDEO_DIR = os.path.join(CURRENT_DIR, './videos_long/' + str(TRUTH) + '/', )
-TARGET_DIR = os.path.join(CURRENT_DIR, './videos_frames_long/' + str(TRUTH) + '/')
-TARGET_CSV = os.path.join(CURRENT_DIR, './csv/')
+VIDEO_DIR = os.path.join(CURRENT_DIR, './videos/' + str(TRUTH) + '/', )
+TARGET_DIR = os.path.join(CURRENT_DIR, './videos_frames/' + str(TRUTH) + '/')
+TARGET_CSV = os.path.join(CURRENT_DIR, './nps/')
 ANCHOR = "0-YNose"
 
 BODY_25_COLUMNS = ["0-XNose", "0-YNose",
@@ -87,28 +88,23 @@ def dir_to_body25(videos_dir, targets_dir):
     return df
 
 
-def split_preprocess(df, anchor, columns, n=2):
+def split_preprocess(df, anchor, columns):
     """
-    :param df: dataframe to split
-    :param anchor: column to split by, string
-    :param columns: list of columns to keep
-    :param n: number to average by
-    :return: dataframe with a different period column
+    :param df: dataframe
+    :param anchor: column to use to split the data
+    :param columns: columns to keep
+    :return: numpy array of array
     """
     df = df[columns]
-    df.insert(0, 'period', 0)
-    df = df[df[anchor] != 0]
-    df.reset_index(drop=True, inplace=True)
-    period = 0
-    for i, value in enumerate(df[anchor]):
-        pre_mean = df.loc[i - n:i, anchor].mean()
-        post_mean = df.loc[i + 1:i + n + 1, anchor].mean()
-        df.loc[i, 'period'] = period
-        period += 1
-        if value < pre_mean and value < post_mean:
-            period = 0
-
-    return df
+    df = df.apply(lambda x: (x - x.max()) * (-1), axis=1)
+    peaks, _ = find_peaks(df[anchor], distance=5)
+    l = [0] + list(df.loc[peaks, '0-YNose'].index) + [len(df)]
+    array = []
+    for i in range(len(l)):
+        if len(df[l[i - 1]:l[i]]) > 10:
+            array.append(df[l[i - 1]:l[i]].values)
+    array = np.array(array)
+    return array
 
 # def df_to_np(df):
 
@@ -119,5 +115,5 @@ if __name__ == '__main__':
         os.makedirs(TARGET_CSV)
 
     df = dir_to_body25(VIDEO_DIR, TARGET_DIR)
-    df = split_preprocess(df, ANCHOR, MODELLING_COLUMNS)
-    df.to_csv(TARGET_CSV + str(TRUTH) + '.csv')
+    array = split_preprocess(df, ANCHOR, MODELLING_COLUMNS)
+    np.save(TARGET_CSV + str(TRUTH) + '.npy', array)
