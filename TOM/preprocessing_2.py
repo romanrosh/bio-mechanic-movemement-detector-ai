@@ -1,8 +1,6 @@
-from PIL import Image
 import pandas as pd
 from preprocessing_1 import *
 from scipy.signal import find_peaks
-from keras.preprocessing.sequence import pad_sequences
 
 CURRENT_DIR = os.getcwd()
 TRUTH = 1
@@ -112,6 +110,7 @@ def split_preprocess(df, anchor, columns, truth):
     :param df: dataframe
     :param anchor: column to use to split the data
     :param columns: columns to keep
+    :truth columns: 1 or 0
     :return: numpy array of array
     """
     df = df[columns]
@@ -135,8 +134,6 @@ def split_preprocess(df, anchor, columns, truth):
             continue
 
     return np.array(X), np.array(y)
-
-
 
 
 if __name__ == '__main__':

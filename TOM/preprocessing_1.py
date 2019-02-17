@@ -3,7 +3,6 @@ import os
 import numpy as np
 import logging
 import math
-import pandas as pd
 
 
 DIM = 50
