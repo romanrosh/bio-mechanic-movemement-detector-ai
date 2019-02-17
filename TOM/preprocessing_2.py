@@ -2,6 +2,7 @@ from PIL import Image
 import pandas as pd
 from preprocessing_1 import *
 from scipy.signal import find_peaks
+from keras.preprocessing.sequence import pad_sequences
 
 CURRENT_DIR = os.getcwd()
 TRUTH = 1
@@ -88,7 +89,25 @@ def dir_to_body25(videos_dir, targets_dir):
     return df
 
 
-def split_preprocess(df, anchor, columns):
+def remove_inaction(array):
+    """remove from sequence moments of inaction at the beginning and at the end of the second column"""
+    start = array[0, 1]
+    end = array[-1, 1]
+    column = array[:, 1]
+    for i in range(len(column)):
+        index = i + 1
+        if column[index] != start:
+            break
+        array = array[1:, :]
+    for i in range(len(column)):
+        index = (-2) - i
+        if column[index] != end:
+            break
+        array = array[:-1, :]
+    return array
+
+
+def split_preprocess(df, anchor, columns, truth):
     """
     :param df: dataframe
     :param anchor: column to use to split the data
@@ -99,21 +118,32 @@ def split_preprocess(df, anchor, columns):
     df = df.apply(lambda x: (x - x.max()) * (-1), axis=1)
     peaks, _ = find_peaks(df[anchor], distance=5)
     l = [0] + list(df.loc[peaks, '0-YNose'].index) + [len(df)]
-    array = []
-    for i in range(len(l)):
-        if len(df[l[i - 1]:l[i]]) > 10:
-            array.append(df[l[i - 1]:l[i]].values)
-    array = np.array(array)
-    return array
+    X = []
+    y = []
 
-# def df_to_np(df):
+    for i in range(len(l)):
+        movement = df[l[i - 1]:l[i]]
+        try:
+            cleaned_movement = remove_inaction(movement.values)
+            if 10 < len(cleaned_movement) <= 20:
+                y.append(truth)
+                X.append(cleaned_movement)
+            else:
+                logging.info('warning : movement: {} , length: {} '.format(i, movement.shape[0]))
+        except IndexError:
+            print('empty sequence')
+            continue
+
+    return np.array(X), np.array(y)
+
+
 
 
 if __name__ == '__main__':
-    # video_to_img(os.path.join(CURRENT_DIR, TEST_FILE), os.path.join(CURRENT_DIR, TARGET_DIR))
     if not os.path.exists(TARGET_CSV):
         os.makedirs(TARGET_CSV)
 
     df = dir_to_body25(VIDEO_DIR, TARGET_DIR)
-    array = split_preprocess(df, ANCHOR, MODELLING_COLUMNS)
-    np.save(TARGET_CSV + str(TRUTH) + '.npy', array)
+    X, y = split_preprocess(df, ANCHOR, MODELLING_COLUMNS, TRUTH)
+    np.save(TARGET_CSV + str(TRUTH) + '_X' + '.npy', X)
+    np.save(TARGET_CSV + str(TRUTH) + '_y' + '.npy', y)
