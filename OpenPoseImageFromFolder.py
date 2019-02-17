@@ -145,8 +145,10 @@ def read_from_folder(path):
         cv2.waitKey(0)
     df.columns = BODY_25_COLUMNS
     df['Source-Image'] = file_list
-
+    df['position'] = path.split('/')[-2]
+    df.fillna(value=np.nan, inplace=True)
     for i in range(len(df)):
+        print(df.loc[i,'Source-Image'])
         # RIGHT KNEE
         u = (df.loc[i, '9-XRHip'] - df.loc[i, '10-XRKnee'], df.loc[i, '9-YRHip'] - df.loc[i, '10-YRKnee'])
         v = (df.loc[i, '11-XRAnkle'] - df.loc[i, '10-XRKnee'], df.loc[i, '11-YRAnkle'] - df.loc[i, '10-YRKnee'])
@@ -169,13 +171,21 @@ def read_from_folder(path):
         # heel ankle toe knee right side
         toes_x = (df.loc[i, "22-XRBigToe"] + df.loc[i, "23-XRSmallToe"]) / 2
         toes_y = (df.loc[i, "22-YRBigToe"] + df.loc[i, "23-YRSmallToe"]) / 2
-        heel_angle_x = (df.loc[i, "24-XRHeel"] + df.loc[i, "11-XRAnkle"]) / 2
-        heel_angle_y = (df.loc[i, "24-YRHeel"] + df.loc[i, "11-YRAnkle"]) / 2
+        if df.loc[i, "24-YRHeel"] == None:
+            heel_angle_y = df.loc[i, "11-YRAnkle"]
+        else:
+            heel_angle_y = (df.loc[i, "24-YRHeel"] + df.loc[i, "11-YRAnkle"]) / 2
+        if df.loc[i, "24-XRHeel"] == None:
+            heel_angle_x = df.loc[i, "11-XRAnkle"]
+        else:
+            heel_angle_x = (df.loc[i, "24-XRHeel"] + df.loc[i, "11-XRAnkle"]) / 2
+        # heel_angle_x = (df.loc[i, "24-XRHeel"] + df.loc[i, "11-XRAnkle"]) / 2
+        # heel_angle_y = (df.loc[i, "24-YRHeel"] + df.loc[i, "11-YRAnkle"]) / 2
+
         u = (toes_x - heel_angle_x, toes_y - heel_angle_y)
         v = (heel_angle_x - df.loc[i, '10-XRKnee'], heel_angle_y - df.loc[i, '10-YRKnee'])
         c = np.dot(u, v) / np.linalg.norm(u) / np.linalg.norm(v)
         df.loc[i,'RightHeelAngleAngle'] = np.arccos(np.clip(c, -1, 1))*180/np.pi
-
         # hip neck knee
         knee_x = (df.loc[i, "10-XRKnee"] + df.loc[i, "13-XLKnee"]) / 2
         knee_y = (df.loc[i, "10-YRKnee"] + df.loc[i, "13-YLKnee"]) / 2
@@ -197,11 +207,6 @@ folders = ['C:/Users/romanrosh/photos/front/right_bottom/',
         'C:/Users/romanrosh/photos/front/right_top/',
         'C:/Users/romanrosh/photos/side/right_bottom/',
         'C:/Users/romanrosh/photos/side/right_top/']
-
-# folders = ['C:/Users/romanrosh/photos/front/right_bottom/',
-#         'C:/Users/romanrosh/photos/front/right_top/']
-
-folders = ['C:/Users/romanrosh/photos/test/']
 
 for folder in folders:
     read_from_folder(folder)
