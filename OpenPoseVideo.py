@@ -7,7 +7,7 @@ import math
 from angles import angle
 
 MODE = "BODY25"
-input_source = "The Air Squat.mp4"
+input_source = "Most pull-ups in one minute - Guinness World Records.mp4"
 # 100 Body Squats Non Stop.mp4
 # --
 # Most Squats in 5-Minutes.mp4
@@ -15,7 +15,6 @@ input_source = "The Air Squat.mp4"
 # The Back Squat.mp4
 # Roman10.MOV
 # 250 consecutive squats.mp4
-# 20190211_110210.mp4 Roman General movmements
 
 output_destination ='./destination/' + input_source.split('.')[0] + '.avi'
 OUTPUT_CSV = './destination/output.csv'
