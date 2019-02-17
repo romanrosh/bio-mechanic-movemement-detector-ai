@@ -15,6 +15,7 @@ input_source = "The Air Squat.mp4"
 # The Back Squat.mp4
 # Roman10.MOV
 # 250 consecutive squats.mp4
+# 20190211_110210.mp4 Roman General movmements
 
 output_destination ='./destination/' + input_source.split('.')[0] + '.avi'
 OUTPUT_CSV = './destination/output.csv'
@@ -159,7 +160,7 @@ while cv2.waitKey(1) < 0:
     #             (255, 50, 0), 2, lineType=cv2.LINE_AA)
     # cv2.putText(frame, "OpenPose using OpenCV", (50, 50), cv2.FONT_HERSHEY_COMPLEX, 1, (255, 50, 0), 2, lineType=cv2.LINE_AA)
     # cv2.imshow('Output-Keypoints', frameCopy)
-    cv2.imshow('Output-Skeleton', frame)
+    # cv2.imshow('Output-Skeleton', frame)
     vid_writer.write(frame)
     if hasFrame == False:
         break
@@ -168,8 +169,8 @@ vid_writer.release()
 df.columns = BODY_25_COLUMNS
 df.fillna(value=pd.np.nan, inplace=True)
 
-df2 = df.copy()
-df2.fillna(value=np.nan, inplace=True)
+df = df.copy()
+df.fillna(value=np.nan, inplace=True)
 
 ## list NaNs tuples
 
@@ -183,34 +184,34 @@ def nans_list(df):
                 nans.append((i,j))
     return nans
 
-nans = nans_list(df2)
+nans = nans_list(df)
 print(f"NaNs left to deal with: {len(nans)}")
 
 ## for points not at the edge, if NaN take the mean around them
 
 persistent_nans = []
 for point in nans:
-    if point[0]>4 and point[0]<df2.shape[0]-5:
-        df2.iloc[point[0], point[1]] = np.nanmean(df2.iloc[point[0]-5:point[0]+6,point[1] ])
+    if point[0]>4 and point[0]<df.shape[0]-5:
+        df.iloc[point[0], point[1]] = np.nanmean(df.iloc[point[0]-5:point[0]+6,point[1] ])
 
-print(f"NaNs left to deal with at the edges: {len(nans_list(df2))}")
+print(f"NaNs left to deal with at the edges: {len(nans_list(df))}")
 
-print(nans_list(df2))
+print(nans_list(df))
 
 reverse_top = np.arange(0,15)[::-1]
 
 for row in reverse_top:
-    for col in np.arange(df2.shape[1]):
-        if math.isnan(df2.iloc[row, col]):
-            df2.iloc[row, col] = df2.iloc[row+1, col]
+    for col in np.arange(df.shape[1]):
+        if math.isnan(df.iloc[row, col]):
+            df.iloc[row, col] = df.iloc[row+1, col]
 
 
-for row in np.arange(df2.shape[0]-10, df2.shape[0]):
-    for col in np.arange(df2.shape[1]):
-        if math.isnan(df2.iloc[row, col]):
-            df2.iloc[row, col] = df2.iloc[row-1, col]
+for row in np.arange(df.shape[0]-10, df.shape[0]):
+    for col in np.arange(df.shape[1]):
+        if math.isnan(df.iloc[row, col]):
+            df.iloc[row, col] = df.iloc[row-1, col]
 
-print(f"NaNs left to deal with: {len(nans_list(df2))}")
+print(f"NaNs left to deal with: {len(nans_list(df))}")
 
 
 
@@ -229,10 +230,10 @@ found_anomalies = True
 while found_anomalies:
     iterations += 1
     found_anomalies = False
-    for row in np.arange(5,df2.shape[0]-5):
-        for col in np.arange(df2.shape[1]):
-            result = anomaly_detector(df2.iloc[row-5:row+6, col])
-            df2.iloc[row, col] = result[0]
+    for row in np.arange(5,df.shape[0]-5):
+        for col in np.arange(df.shape[1]):
+            result = anomaly_detector(df.iloc[row-5:row+6, col])
+            df.iloc[row, col] = result[0]
             if result[1]:
                 found_anomalies = True
 print(f"{iterations} iterations required")
@@ -256,29 +257,20 @@ while found_anomalies:
     iterations += 1
     found_anomalies = False
     for row in np.arange(5):
-        for col in np.arange(df2.shape[1]):
-            result = edge_anomaly_detector(df2.iloc[:5, col], df2.iloc[row, col])
-            df2.iloc[row, col] = result[0]
+        for col in np.arange(df.shape[1]):
+            result = edge_anomaly_detector(df.iloc[:5, col], df.iloc[row, col])
+            df.iloc[row, col] = result[0]
             if result[1]:
                 found_anomalies = True
-    for row in np.arange(df2.shape[0]):
-        for col in np.arange(df2.shape[1]):
-            result = edge_anomaly_detector(df2.iloc[df2.shape[0]-5:, col], df2.iloc[row, col])
-            df2.iloc[row, col] = result[0]
+    for row in np.arange(df.shape[0]):
+        for col in np.arange(df.shape[1]):
+            result = edge_anomaly_detector(df.iloc[df.shape[0]-5:, col], df.iloc[row, col])
+            df.iloc[row, col] = result[0]
             if result[1]:
                 found_anomalies = True
 print(f"{iterations} iterations required")
 
-print(df2)
-OUTPUT_CSV2 = './destination/output_anomalies.csv'
-
-exists = os.path.isfile(OUTPUT_CSV2)
-
-if exists:
-    with open(OUTPUT_CSV2, 'a') as f:
-        df2.to_csv(f, header=False)
-else:
-    df2.to_csv(OUTPUT_CSV2)
+print(df)
 
 for i in range(len(df)):
     # RIGHT KNEE

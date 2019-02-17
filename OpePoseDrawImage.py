@@ -16,32 +16,35 @@ inHeight = 368
 
 def draw_sticks(path):
     df=pd.read_csv(path)
-    df.drop(['Unnamed: 0','Unnamed: 0.1'],axis=1,inplace=True)
-    frame = np.zeros((300, 300 * 3))
-    frame = cv2.resize(frame, dsize=(300, 300 * 3))
-    vid_writer = cv2.VideoWriter('out.avi', cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), 10, (frame.shape[1], frame.shape[0]))
+    df.drop(['Unnamed: 0'],axis=1,inplace=True)
+    df.dropna(inplace=True,axis=0)
+    print(df)
+    # vid_writer = cv2.VideoWriter('out.avi', cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), 10, (frame.shape[1], frame.shape[0]))
     for j in range(len(df)):
-        # frame = np.zeros((300,300*3))
-        # frame = cv2.resize(frame, dsize=(300, 300*3))
+        frame = np.zeros((800, 600))
+        # frame = cv2.resize(frame, dsize=(800, 600))
         tuples_array = []
         try:
             for i in range(0, 50, 2):
                 tuples_array.append(tuple([int(df.iloc[j, i]), int(df.iloc[j, i+1])]))
-            # print(tuples_array)
+            print(len(tuples_array))
             for pair in POSE_PAIRS:
+                print(pair)
                 partA = pair[0]
                 partB = pair[1]
+                print(tuples_array)
                 if tuples_array[partA] and tuples_array[partB]:
                     cv2.line(frame, tuples_array[partA], tuples_array[partB], (100, 100, 100), 2)
                     cv2.circle(frame, tuples_array[partA], 8, (100, 100, 100))
                     cv2.circle(frame, tuples_array[partB], 8, (100, 100, 100))
-        except Exception:
-            print('Error in image generation')
+                # cv2.putText(frame, df.loc[j,'label'], (50, 50), cv2.FONT_HERSHEY_COMPLEX, 1, (255, 50, 0), 2, lineType=cv2.LINE_AA)
+        except Exception as ex:
+            print(ex)
             # print(points)
         # cv2.imshow('Output-Keypoints', frame)
         cv2.imshow('Output-Skeleton', frame)
-        vid_writer.write(frame)
+        # vid_writer.write(frame)
         cv2.waitKey(0)
 
-
-draw_sticks(path='C:/Users/romanrosh/PycharmProjects/bio-mechanic-movmement-detector-ai/destination/all labeled.csv')
+draw_sticks(path='C:/Users/romanrosh/PycharmProjects/bio-mechanic-movmement-detector-ai/destination/output.csv')
+# draw_sticks(path='C:/Users/romanrosh/PycharmProjects/bio-mechanic-movmement-detector-ai/destination/all labeled.csv')
