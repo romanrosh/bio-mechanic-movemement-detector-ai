@@ -4,21 +4,20 @@ import numpy as np
 import pandas as pd
 import os
 import math
-from angles import angle
 
 MODE = "BODY25"
-input_source = "Most pull-ups in one minute - Guinness World Records.mp4"
+input_source = "105 Dead Hang Pull-Ups In a Row (World Record) 2017.mp4"
 # 100 Body Squats Non Stop.mp4
-# --
 # Most Squats in 5-Minutes.mp4
 # The Air Squat.mp4
 # The Back Squat.mp4
 # Roman10.MOV
 # 250 consecutive squats.mp4
+# 105 Dead Hang Pull-Ups In a Row (World Record) 2017.mp4
 
 output_destination ='./destination/' + input_source.split('.')[0] + '.avi'
 OUTPUT_CSV = './destination/output.csv'
-FRAMES_TO_TAKE = 15
+FRAMES_TO_TAKE = 5
 
 if MODE is "COCO":
     protoFile = "C:/Users/romanrosh/openpose-1.4.0-win64-gpu-binaries/models/pose/coco/pose_deploy_linevec.prototxt"
@@ -82,6 +81,10 @@ vid_writer = cv2.VideoWriter(output_destination, cv2.VideoWriter_fourcc('M', 'J'
 net = cv2.dnn.readNetFromCaffe(protoFile, weightsFile)
 counter = 0
 df_is_empty = True
+length = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+
+print('frames to retrieve', length/FRAMES_TO_TAKE)
+
 while cv2.waitKey(1) < 0:
     t = time.time()
     hasFrame, frame = cap.read()
@@ -89,8 +92,6 @@ while cv2.waitKey(1) < 0:
     if np.mod(counter, FRAMES_TO_TAKE) != 0:
         continue
     print('frame', counter)
-    if counter == 1000:
-        break
     frameCopy = np.copy(frame)
     if not hasFrame:
         cv2.waitKey()
@@ -307,6 +308,7 @@ for i in range(len(df)):
     v = (df.loc[i, '1-XNeck'] - df.loc[i, '8-XMidHip'], df.loc[i, '1-YNeck'] - df.loc[i, '8-YMidHip'])
     c = np.dot(u, v) / np.linalg.norm(u) / np.linalg.norm(v)
     df.loc[i, 'HipAngle'] = np.arccos(np.clip(c, -1, 1)) * 180 / np.pi
+    df['time'] = t
 
 exists = os.path.isfile(OUTPUT_CSV)
 
