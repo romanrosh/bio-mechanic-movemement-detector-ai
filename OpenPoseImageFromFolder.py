@@ -5,7 +5,7 @@ import os
 import pandas as pd
 
 MODE = "BODY25"
-OUTPUT_CSV='output.csv'
+OUTPUT_CSV='all_squats_from_pics.csv'
 if MODE is "COCO":
     protoFile = "C:/Users/romanrosh/openpose-1.4.0-win64-gpu-binaries/models/pose/coco/pose_deploy_linevec.prototxt"
     weightsFile = "C:/Users/romanrosh/openpose-1.4.0-win64-gpu-binaries/models/pose/coco/pose_iter_440000.caffemodel"
@@ -56,12 +56,14 @@ elif MODE is "BODY25":
                        "24-XRHeel",     "24-YRHeel"]
 
 def read_from_folder(path):
+    import cv2
     files = os.listdir(path)
     df_is_empty = True
     # df.loc[j, 'Source-Image'] = path.split('/')[-2] + '/' + name
+    frame = np.zeros((800,600))
     file_list = [path.split('/')[-3] + '/' + path.split('/')[-2] + '/' + file for file in files]
     for j,name in enumerate(files):
-        print(name)
+        print(path+name)
         frame = cv2.imread(path+name)
         frame = cv2.resize(frame, dsize=(800, 600))
         frameCopy = np.copy(frame)
@@ -135,8 +137,8 @@ def read_from_folder(path):
                 cv2.line(frame, points[partA], points[partB], (0, 255, 255), 2)
                 cv2.circle(frame, points[partA], 8, (0, 0, 255))
 
-        cv2.imshow('Output-Keypoints', frameCopy)
-        cv2.imshow('Output-Skeleton', frame)
+        # cv2.imshow('Output-Keypoints', frameCopy)
+        # cv2.imshow('Output-Skeleton', frame)
 
         # cv2.imwrite('./destination/'+name+frameCopy, path+name+frameCopy)
         # cv2.imwrite('./destination/'+path+name+frame, path+name+frame)

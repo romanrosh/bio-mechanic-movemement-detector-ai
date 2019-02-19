@@ -12,8 +12,8 @@ POSE_PAIRS = [[1, 0], [1, 2], [1, 5], [2, 3], [3, 4], [5, 6], [6, 7], [1, 8], [8
               [10, 11], [8, 12], [12, 13], [13, 14], [1, 0], [0, 15], [0, 16], [16, 18], [2, 17], [5, 18], [14, 19],
               [19, 20], [14, 21], [11, 22], [22, 23], [11, 24]]
 CURRENT_DIR = os.getcwd()
-ORIGIN_DIR = os.path.join(CURRENT_DIR, './images/snaps/')
-ESTIMATION_DIR = os.path.join(CURRENT_DIR, './images/estimation/')
+ORIGIN_DIR = os.path.join(CURRENT_DIR, './destination/')
+ESTIMATION_DIR = os.path.join(CURRENT_DIR, './destination/')
 
 
 def take_snapshots(origin_dir):

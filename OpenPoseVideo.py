@@ -6,18 +6,13 @@ import os
 import math
 
 MODE = "BODY25"
-input_source = "105 Dead Hang Pull-Ups In a Row (World Record) 2017.mp4"
-# 100 Body Squats Non Stop.mp4
-# Most Squats in 5-Minutes.mp4
-# The Air Squat.mp4
-# The Back Squat.mp4
-# Roman10.MOV
-# 250 consecutive squats.mp4
-# 105 Dead Hang Pull-Ups In a Row (World Record) 2017.mp4
+input_source = "demo1.mp4"
+# demo1.mp4
+# demo2.mp4
 
 output_destination ='./destination/' + input_source.split('.')[0] + '.avi'
-OUTPUT_CSV = './destination/output.csv'
-FRAMES_TO_TAKE = 5
+OUTPUT_CSV = './destination/Air Squat with Chris Spealler.mp4.csv'
+FRAMES_TO_TAKE = 3
 
 if MODE is "COCO":
     protoFile = "C:/Users/romanrosh/openpose-1.4.0-win64-gpu-binaries/models/pose/coco/pose_deploy_linevec.prototxt"
@@ -83,13 +78,17 @@ counter = 0
 df_is_empty = True
 length = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
 
-print('frames to retrieve', length/FRAMES_TO_TAKE)
+print('frames to retrieve', length)
 
 while cv2.waitKey(1) < 0:
+    if counter > length:
+        break
     t = time.time()
     hasFrame, frame = cap.read()
     counter += 1
     if np.mod(counter, FRAMES_TO_TAKE) != 0:
+        continue
+    if counter < 25:
         continue
     print('frame', counter)
     frameCopy = np.copy(frame)
@@ -123,7 +122,7 @@ while cv2.waitKey(1) < 0:
 
         if prob > threshold:
             cv2.circle(frameCopy, (int(x), int(y)), 8, (0, 255, 255), thickness=-1, lineType=cv2.FILLED)
-            cv2.putText(frameCopy, "{}".format(i), (int(x), int(y)), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2,
+            cv2.putText(frameCopy, "{}".format(i), (int(x), int(y)), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 1,  #change to 1
                         lineType=cv2.LINE_AA)
 
             # Add the point to the list if the probability is greater than the threshold
@@ -160,7 +159,7 @@ while cv2.waitKey(1) < 0:
     #             (255, 50, 0), 2, lineType=cv2.LINE_AA)
     # cv2.putText(frame, "OpenPose using OpenCV", (50, 50), cv2.FONT_HERSHEY_COMPLEX, 1, (255, 50, 0), 2, lineType=cv2.LINE_AA)
     # cv2.imshow('Output-Keypoints', frameCopy)
-    # cv2.imshow('Output-Skeleton', frame)
+    cv2.imshow('Output-Skeleton', frame)
     vid_writer.write(frame)
     if hasFrame == False:
         break
@@ -169,12 +168,6 @@ vid_writer.release()
 df.columns = BODY_25_COLUMNS
 df.fillna(value=pd.np.nan, inplace=True)
 
-df = df.copy()
-df.fillna(value=np.nan, inplace=True)
-
-## list NaNs tuples
-
-# display(df.apply(np.nanmean, axis=1))
 def nans_list(df):
     import math
     nans = []
@@ -202,6 +195,7 @@ reverse_top = np.arange(0,15)[::-1]
 
 for row in reverse_top:
     for col in np.arange(df.shape[1]):
+        print(row, col)
         if math.isnan(df.iloc[row, col]):
             df.iloc[row, col] = df.iloc[row+1, col]
 
@@ -238,7 +232,6 @@ while found_anomalies:
                 found_anomalies = True
 print(f"{iterations} iterations required")
 
-
 ## anomalies on edges (top/bottom 5 rows)
 
 def edge_anomaly_detector(arr, val):
@@ -246,7 +239,7 @@ def edge_anomaly_detector(arr, val):
     array_std = np.std(arr)
     #     mid_point = arr.iloc[int((arr.shape[0]+1)/2 - 1)]
     if array_std > 0 and np.abs(val - array_mean) / array_std > 2:
-        #         print('anomaly handled')
+        print('anomaly handled')
         return array_mean, True
     return val, False
 
@@ -308,7 +301,6 @@ for i in range(len(df)):
     v = (df.loc[i, '1-XNeck'] - df.loc[i, '8-XMidHip'], df.loc[i, '1-YNeck'] - df.loc[i, '8-YMidHip'])
     c = np.dot(u, v) / np.linalg.norm(u) / np.linalg.norm(v)
     df.loc[i, 'HipAngle'] = np.arccos(np.clip(c, -1, 1)) * 180 / np.pi
-    df['time'] = t
 
 exists = os.path.isfile(OUTPUT_CSV)
 

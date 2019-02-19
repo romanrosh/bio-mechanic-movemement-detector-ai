@@ -16,35 +16,42 @@ inHeight = 368
 
 def draw_sticks(path):
     df=pd.read_csv(path)
-    df.drop(['Unnamed: 0'],axis=1,inplace=True)
+    df=df.loc[:,'0-XNose':"24-YRHeel"]
     # df.dropna(inplace=True,axis=0)
-    print(df)
+    # print(df)
+    frame = np.zeros((800, 600))
+
     # vid_writer = cv2.VideoWriter('out.avi', cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), 10, (frame.shape[1], frame.shape[0]))
     for j in range(len(df)):
         frame = np.zeros((800, 600))
-        # frame = cv2.resize(frame, dsize=(800, 600))
+
+        frame = cv2.resize(frame, dsize=(800, 600))
         tuples_array = []
         try:
             for i in range(0, 50, 2):
                 tuples_array.append(tuple([int(df.iloc[j, i]), int(df.iloc[j, i+1])]))
-            print(len(tuples_array))
             for pair in POSE_PAIRS:
-                print(pair)
                 partA = pair[0]
                 partB = pair[1]
-                print(tuples_array)
+                # print(tuples_array)
                 if tuples_array[partA] and tuples_array[partB]:
-                    cv2.line(frame, tuples_array[partA], tuples_array[partB], (100, 100, 100), 2)
-                    cv2.circle(frame, tuples_array[partA], 8, (100, 100, 100))
-                    cv2.circle(frame, tuples_array[partB], 8, (100, 100, 100))
-                # cv2.putText(frame, df.loc[j,'label'], (50, 50), cv2.FONT_HERSHEY_COMPLEX, 1, (255, 50, 0), 2, lineType=cv2.LINE_AA)
+                    cv2.line(frame, tuples_array[partA], tuples_array[partB], (200, 200, 200), 2)
+                    # cv2.circle(frame, tuples_array[partA], 8, (100, 100, 100))
+                    # cv2.circle(frame, tuples_array[partB], 8, (100, 100, 100))
+            cv2.putText(frame, "{}".format(str(df.iloc[j,-1])), (int(x), int(y)), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 1,  #change to 1
+                        lineType=cv2.LINE_AA)
         except Exception as ex:
             print(ex)
-            # print(points)
-        # cv2.imshow('Output-Keypoints', frame)
+        print(frame.shape)
+        from scipy import ndimage, misc
+        misc.imsave('fileName.jpg', frame)
+        frame = ndimage.imread('fileName.jpg', 0)
+        frame = cv2.Canny(frame, 1, 100)
+
+        cv2.imshow('Output-Keypoints', frame)
         cv2.imshow('Output-Skeleton', frame)
         # vid_writer.write(frame)
-        cv2.waitKey(0)
+        cv2.waitKey(50)
 
-draw_sticks(path='C:/Users/romanrosh/PycharmProjects/bio-mechanic-movmement-detector-ai/destination/All_top_bottom_correct_movements.csv')
-# draw_sticks(path='C:/Users/romanrosh/PycharmProjects/bio-mechanic-movmement-detector-ai/destination/all labeled.csv')
+# draw_sticks(path='C:/Users/romanrosh/PycharmProjects/bio-mechanic-movmement-detector-ai/destination/All_top_bottom_correct_movements.csv')
+draw_sticks('C:/Users/romanrosh/PycharmProjects/bio-mechanic-movmement-detector-ai/destination/Data for fit/Most Squats in 5-Minutes-all labeled.csv')

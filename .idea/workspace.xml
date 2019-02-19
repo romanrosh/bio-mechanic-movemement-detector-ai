@@ -2,9 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53758124-a276-4243-848a-351562495724" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/bio-mechanic-movmement-detector-ai.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bio-mechanic-movmement-detector-ai.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Squat_Project_submission_1-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/Squat_Project_submission_1-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpePoseDrawImage.py" beforeDir="false" afterPath="$PROJECT_DIR$/OpePoseDrawImage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenPoseImageFromFolder.py" beforeDir="false" afterPath="$PROJECT_DIR$/OpenPoseImageFromFolder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenPoseVideo.py" beforeDir="false" afterPath="$PROJECT_DIR$/OpenPoseVideo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Output-Keypoints.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Output-Skeleton.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Squat_Project_submission_1.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Squat_Project_submission_1.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TOM/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TOM/preprocessing_1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TOM/preprocessing_2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TOM/train_lstm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/angles.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataframe_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/dataframe_analysis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/end to end - pics.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face-recognition-shalom/.ipynb_checkpoints/face recognition-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face-recognition-shalom/face recognition.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face-recognition-shalom/obama1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face-recognition-shalom/obama2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face-recognition-shalom/obama3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face-recognition-shalom/shalom.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face-recognition-shalom/unknown.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/get_images_from_video.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output_roee2.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webcam/webcam_app.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webcam_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/webcam_app.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,7 +43,32 @@
     <SUITE FILE_PATH="coverage/bio_mechanic_movmement_detector_ai$test_video_rendering.coverage" NAME="test video rendering Coverage Results" MODIFIED="1550061151298" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/OpenPoseVideo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/OpePoseDrawImage.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="720">
+              <caret line="36" column="36" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -30,20 +79,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>df.colu</find>
-      <find>dsize</find>
-      <find>ancle</find>
-      <find>nans_list</find>
-      <find>e</find>
-      <find>ims</find>
-      <find>hee</find>
-      <find>file_list</find>
-      <find>sour</find>
-      <find>dsi</find>
-      <find>POSE_PAIRS</find>
-      <find>part</find>
       <find>nPoints</find>
-      <find>anoma</find>
       <find>wait</find>
       <find>LineTypes</find>
       <find>print</find>
@@ -59,7 +95,20 @@
       <find>df2</find>
       <find>IMSH</find>
       <find>exists</find>
+      <find>frames</find>
+      <find>break</find>
+      <find>cv2</find>
+      <find>imshow</find>
+      <find>frame</find>
+      <find>--</find>
+      <find>t</find>
       <find>imsh</find>
+      <find>cv2.li</find>
+      <find>output</find>
+      <find>anoma</find>
+      <find>t</find>
+      <find>time</find>
+      <find>cv2.line</find>
     </findStrings>
     <replaceStrings>
       <replace>df</replace>
@@ -82,42 +131,59 @@
         <option value="$PROJECT_DIR$/webcam/webcam_app.py" />
         <option value="$PROJECT_DIR$/main_func.py" />
         <option value="$PROJECT_DIR$/angles.py" />
-        <option value="$PROJECT_DIR$/OpenPoseImage.py" />
-        <option value="$PROJECT_DIR$/webcam_app.py" />
         <option value="$PROJECT_DIR$/anomalies.ipynb" />
+        <option value="$PROJECT_DIR$/webcam_app.py" />
+        <option value="$PROJECT_DIR$/OpenPoseImage.py" />
         <option value="$PROJECT_DIR$/OpenPoseImageFromFolder.py" />
-        <option value="$PROJECT_DIR$/OpenPoseVideo.py" />
         <option value="$PROJECT_DIR$/OpePoseDrawImage.py" />
+        <option value="$PROJECT_DIR$/OpenPoseVideo.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="950" />
-    <option name="width" value="979" />
+    <option name="x" value="753" />
+    <option name="y" value="48" />
+    <option name="width" value="980" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
             <path>
-              <item name="bio-mechanic-movmement-detector-ai" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bio-mechanic-movmement-detector-ai" type="462c0819:PsiDirectoryNode" />
+              <item name="bio-mechanic-movmement-detector-ai" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="bio-mechanic-movmement-detector-ai" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="Archive" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="bio-mechanic-movmement-detector-ai" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="Archive" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="TOM" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="bio-mechanic-movmement-detector-ai" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="destination" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/venv" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../rl-workshop" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -145,7 +211,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.OpePoseDrawImage">
+  <component name="RunManager" selected="Python.OpenPoseVideo">
     <configuration name="OpePoseDrawImage" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bio-mechanic-movmement-detector-ai" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -159,6 +225,48 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OpePoseDrawImage.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="OpenPoseImage" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bio-mechanic-movmement-detector-ai" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OpenPoseImage.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="OpenPoseImageFromFolder" type="PythonConfigurationType" factoryName="Python">
+      <module name="bio-mechanic-movmement-detector-ai" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\romanrosh\Anaconda3\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OpenPoseImageFromFolder.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -188,7 +296,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="preprocessing_1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="webcam_app" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bio-mechanic-movmement-detector-ai" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -196,11 +304,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TOM" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TOM/preprocessing_1.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/webcam_app.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -209,55 +317,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="preprocessing_2" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="bio-mechanic-movmement-detector-ai" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TOM" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TOM/preprocessing_2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="train_lstm" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="bio-mechanic-movmement-detector-ai" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TOM" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TOM/train_lstm.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+    <list>
+      <item itemvalue="Python.OpenPoseImageFromFolder" />
+      <item itemvalue="Python.OpenPoseVideo" />
+      <item itemvalue="Python.OpePoseDrawImage" />
+      <item itemvalue="Python.webcam_app" />
+      <item itemvalue="Python.OpenPoseImage" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.OpePoseDrawImage" />
         <item itemvalue="Python.OpenPoseVideo" />
-        <item itemvalue="Python.train_lstm" />
-        <item itemvalue="Python.preprocessing_2" />
-        <item itemvalue="Python.preprocessing_1" />
+        <item itemvalue="Python.OpePoseDrawImage" />
+        <item itemvalue="Python.OpenPoseImage" />
+        <item itemvalue="Python.webcam_app" />
       </list>
     </recent_temporary>
   </component>
@@ -423,7 +495,21 @@
       <option name="project" value="LOCAL" />
       <updated>1550447158187</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Reordering of folders">
+      <created>1550448753995</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1550448753995</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Small  changes">
+      <created>1550484379099</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1550484379099</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -440,17 +526,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18175809" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.36685553" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.36685553" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.34985834" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.34844193" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3286119" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
@@ -523,16 +610,11 @@
     <MESSAGE value="Drawing" />
     <MESSAGE value="Changes in openposevideo" />
     <MESSAGE value="Dataframe analysis" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dataframe analysis" />
+    <MESSAGE value="Reordering of folders" />
+    <MESSAGE value="Small  changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small  changes" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/roman-resizing.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Silhouette - shalom.ipynb" />
     <entry file="file://$PROJECT_DIR$/test detect edges.py" />
     <entry file="file://$PROJECT_DIR$/test remove background.py" />
@@ -546,12 +628,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Output-Keypoints.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Output-Skeleton.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Output-Keypoints.jpg" />
+    <entry file="file://$PROJECT_DIR$/Output-Skeleton.jpg" />
     <entry file="file://$PROJECT_DIR$/TOM/__main__.py" />
     <entry file="file://$PROJECT_DIR$/TOM/main.py" />
     <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/647096018/builtins.py" />
@@ -568,30 +646,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webcam/webcam_app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/webcam/webcam_app.py" />
     <entry file="file://$PROJECT_DIR$/end to end - pics.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webcam_app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="130" column="50" selection-start-line="130" selection-start-column="50" selection-end-line="130" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -636,21 +695,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/pandas/core/generic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="374" selection-start-line="374" selection-end-line="374" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/destination/Untitled.ipynb" />
-    <entry file="file://$PROJECT_DIR$/angles.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/angles.py" />
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/pandas/core/internals.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -665,30 +711,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/1.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OpenPoseImage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="94" selection-start-line="94" selection-end-line="94" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/1.jpg" />
+    <entry file="file://$PROJECT_DIR$/2.jpg" />
     <entry file="file://$PROJECT_DIR$/TOM/preprocessing_for_rnn.py" />
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/pandas/core/indexing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="1784" selection-start-line="1784" selection-end-line="1784" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2018.3/system/python_stubs/-222903770/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -727,39 +752,10 @@
     <entry file="file://$PROJECT_DIR$/keypoints_pose_25.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/TOM/README.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TOM/preprocessing_1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TOM/preprocessing_2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="45" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TOM/train_lstm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/TOM/README.txt" />
+    <entry file="file://$PROJECT_DIR$/TOM/preprocessing_1.py" />
+    <entry file="file://$PROJECT_DIR$/TOM/preprocessing_2.py" />
+    <entry file="file://$PROJECT_DIR$/TOM/train_lstm.py" />
     <entry file="file://$PROJECT_DIR$/anomalies&amp;analysis.py" />
     <entry file="file://$PROJECT_DIR$/dataframe_analysis.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
@@ -782,41 +778,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OpePoseDrawImage.py">
+    <entry file="file://$PROJECT_DIR$/Squat_Project_submission_1.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webcam_app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="30" column="35" lean-forward="true" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
+        <state relative-caret-position="1200">
+          <caret line="60" column="28" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OpenPoseImage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="33" column="28" lean-forward="true" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/pandas/core/indexing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="2008" selection-start-line="2008" selection-end-line="2008" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/OpenPoseImageFromFolder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="209" selection-start-line="209" selection-end-line="209" />
+        <state relative-caret-position="160">
+          <caret line="173" column="26" selection-start-line="173" selection-start-column="26" selection-end-line="173" selection-end-column="26" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <marker date="1550428694089" expanded="true" signature="5992:6041" ph="..." />
+            <marker date="1550508695014" expanded="true" signature="6060:6111" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Archive/TOM/train_lstm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/pandas/core/generic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="2486" selection-start-line="2486" selection-end-line="2486" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OpePoseDrawImage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="36" column="36" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/OpenPoseVideo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="288" column="54" lean-forward="true" selection-start-line="288" selection-start-column="54" selection-end-line="288" selection-end-column="54" />
+        <state relative-caret-position="100">
+          <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Squat_Project_submission_1.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
         </state>
       </provider>
     </entry>
